@@ -169,10 +169,13 @@ parallax, floats and marquees.
 Scroll is frame-locked at 60fps with a 4× CPU throttle (~16.7 ms average frame,
 p95 17.9 ms, no long tasks). The rules that keep it there:
 
-- **No `mix-blend-mode` or `backdrop-filter` anywhere.** Both force the
-  compositor to re-read and re-blend the backdrop every frame. Grain and
-  vignette are one fixed alpha-composited layer; `.glass` is a solid fill; the
-  header uses an opaque background rather than a live blur.
+- **No `mix-blend-mode` on a full-viewport layer.** That one effect is the
+  expensive one: it forces the compositor to re-blend the whole screen every
+  scroll frame, and measures at +3.3 ms average. Grain and vignette are one
+  fixed alpha-composited layer instead.
+- **`backdrop-filter` is fine and is used.** Measured on the same throttled
+  scroll it costs 0.01 ms a frame, so the header and `.glass` keep their
+  frosted blur. Blur was never the problem; blending was.
 - **Idle motion is CSS, not JavaScript.** The floating cards and devices use
   `.floaty` keyframes so they animate off the main thread, instead of Framer
   rAF loops.
