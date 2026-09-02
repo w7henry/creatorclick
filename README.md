@@ -66,7 +66,7 @@ scenario is listening on it. In Make:
 
 1. New scenario → add **Webhook → Custom webhook** as the trigger.
 2. Pick the existing hook *CreatorClick — Partnership Applications*.
-3. Add the delivery step you want — Email to `info@creator-click.com`, Google
+3. Add the delivery step you want — Email to `partners@creator-click.com`, Google
    Sheets, Airtable, whatever you prefer.
 4. Run once, submit the form on the site so Make learns the payload shape,
    then map the fields and **activate** the scenario.
@@ -97,11 +97,18 @@ rounded opening masks the corners.
 
 ## Logo
 
-`src/app/icon.svg` (favicon), `src/app/apple-icon.png` and the `Mark`
-component in `src/components/ui/Logo.tsx` are **a vector reconstruction** of
-the CreatorClick mark — the PNG did not arrive as a file, only the asset zip
-did. To swap in the original, replace `icon.svg` / `apple-icon.png` and point
-`Mark` at the file.
+Supplied artwork, with the black corners cut to transparent so the mark sits
+cleanly on any surface:
+
+- `public/logo.webp` (192×192) — header and footer, via `Mark` in
+  `src/components/ui/Logo.tsx`
+- `src/app/icon.png` (128×128) — favicon
+- `src/app/apple-icon.png` (180×180) — iOS home screen
+
+Both `icon.png` and `apple-icon.png` use the Next file convention, so their
+URLs pick up the base path automatically. The mark's lime is `#D7F72C`; the
+site accent `--color-volt` is `#D9FF43` — close enough to read as one colour,
+so the token was left alone.
 
 ---
 

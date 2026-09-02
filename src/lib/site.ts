@@ -6,7 +6,7 @@ export const SITE = {
   description:
     "CreatorClick is a revenue-share product partner for fitness creators. We design and build premium websites, training apps and digital products — and only win when you win.",
   applyHref: "#apply",
-  email: "info@creator-click.com",
+  email: "partners@creator-click.com",
 
   /**
    * Make.com webhook the application form posts to.

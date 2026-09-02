@@ -13,7 +13,7 @@ export const COMPANY = {
   city: "28844 Weyhe, Leeste",
   country: { en: "Germany", de: "Deutschland" },
   phone: { en: "On request", de: "Auf Anfrage" },
-  email: "info@creator-click.com",
+  email: "partners@creator-click.com",
   vatId: "DE326580918",
   form: { en: "Small business (Kleingewerbe)", de: "Kleingewerbe" },
 } as const;
