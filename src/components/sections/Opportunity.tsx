@@ -94,7 +94,7 @@ function Node({
   );
 }
 
-export function Opportunity() {
+export function Opportunity({ as: H = "h2" }: { as?: "h1" | "h2" }) {
   return (
     <section
       id="opportunity"
@@ -114,15 +114,15 @@ export function Opportunity() {
         {/* sticky statement */}
         <div className="col-span-12 lg:col-span-5">
           <div className="lg:sticky lg:top-[22vh]">
-            <SectionTag index="03" label="The opportunity" />
-            <h2 className="t-display t-display-tight t-optical mt-8 text-[15vw] leading-[0.82] sm:text-[12vw] lg:text-[clamp(3rem,5.6vw,6.2rem)]">
+            <SectionTag index="01" label="The opportunity" />
+            <H className="t-display t-display-tight t-optical mt-8 text-[15vw] leading-[0.82] sm:text-[12vw] lg:text-[clamp(3rem,5.6vw,6.2rem)]">
               <Mask>Turn</Mask>
               <Mask delay={0.07}>Attention</Mask>
               <Mask delay={0.14}>Into</Mask>
               <Mask delay={0.21}>
                 <span className="text-volt">Ownership.</span>
               </Mask>
-            </h2>
+            </H>
             <Reveal delay={0.3}>
               <p className="t-body mt-9 max-w-[38ch]">
                 We build the infrastructure behind a personal brand &mdash; the

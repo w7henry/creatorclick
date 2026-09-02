@@ -1,8 +1,5 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { ArrowRight } from "./Icons";
-import { Magnetic } from "./Magnetic";
 
 const SIZES = {
   sm: "h-10 pl-5 pr-4 text-[0.72rem] tracking-[0.08em]",
@@ -10,7 +7,16 @@ const SIZES = {
   lg: "h-[3.65rem] pl-9 pr-7 text-[0.95rem] tracking-[0.04em]",
 } as const;
 
-/** Primary action. Magnetic on desktop, plain tappable pill on touch. */
+function SwapArrow() {
+  return (
+    <span className="relative z-10 block h-[1.1em] w-[1.35em] overflow-hidden">
+      <ArrowRight className="h-full w-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[150%]" />
+      <ArrowRight className="absolute left-0 top-0 h-full w-full -translate-x-[150%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0" />
+    </span>
+  );
+}
+
+/** Primary action. */
 export function ApplyButton({
   children = "Apply to partner",
   href = "#apply",
@@ -23,15 +29,14 @@ export function ApplyButton({
   className?: string;
 }) {
   return (
-    <Magnetic className={className}>
-      <a href={href} className={`btn-volt group ${SIZES[size]}`} data-cursor>
-        <span className="relative z-10 whitespace-nowrap">{children}</span>
-        <span className="relative z-10 block h-[1.1em] w-[1.35em] overflow-hidden">
-          <ArrowRight className="h-full w-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[150%]" />
-          <ArrowRight className="absolute left-0 top-0 h-full w-full -translate-x-[150%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0" />
-        </span>
-      </a>
-    </Magnetic>
+    <a
+      href={href}
+      data-cursor
+      className={`btn-volt group inline-flex ${SIZES[size]} ${className}`}
+    >
+      <span className="relative z-10 whitespace-nowrap">{children}</span>
+      <SwapArrow />
+    </a>
   );
 }
 

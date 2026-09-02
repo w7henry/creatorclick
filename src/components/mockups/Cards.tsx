@@ -48,29 +48,6 @@ export function RevenueCard({ className = "" }: { className?: string }) {
   );
 }
 
-export function MemberCard({ className = "" }: { className?: string }) {
-  return (
-    <div className={`glass relative rounded-[14px] px-4 py-3 ${className}`} data-cursor>
-      <div className="flex items-center gap-3">
-        <span className="relative grid h-8 w-8 place-items-center rounded-full bg-volt">
-          <span className="pulse-ring absolute inset-0 rounded-full border border-volt" />
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#0B0B0C" aria-hidden="true">
-            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-8 9a8 8 0 0 1 16 0H4Z" />
-          </svg>
-        </span>
-        <div>
-          <p className="text-[11px] font-semibold leading-tight tracking-[-0.01em]">
-            New member joined
-          </p>
-          <p className="t-index mt-0.5 text-[8px] uppercase tracking-[0.16em] text-bone-34">
-            Sample notification
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function OwnershipCard({ className = "" }: { className?: string }) {
   const rows = [
     ["Audience", "Yours"],

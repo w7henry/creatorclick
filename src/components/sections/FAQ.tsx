@@ -120,7 +120,7 @@ export function FAQ() {
       <div className="shell grid grid-cols-12 gap-y-12 lg:gap-x-10">
         <div className="col-span-12 lg:col-span-4">
           <div className="lg:sticky lg:top-[24vh]">
-            <SectionTag index="10" label="Questions" />
+            <SectionTag index="03" label="Questions" />
             <h2 className="t-display t-display-tight t-optical mt-8 text-[13vw] leading-[0.84] sm:text-[10vw] lg:text-[clamp(2.6rem,4.4vw,4.8rem)]">
               <Mask>Worth</Mask>
               <Mask delay={0.07}>

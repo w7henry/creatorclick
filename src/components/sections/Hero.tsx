@@ -6,7 +6,7 @@ import { Mask, Reveal } from "@/components/ui/Reveal";
 import { Parallax, ParallaxX } from "@/components/ui/Parallax";
 import { ApplyButton } from "@/components/ui/Cta";
 import { ArrowDown } from "@/components/ui/Icons";
-import { AppHome, AppWorkout, PhoneShell } from "@/components/mockups/Phone";
+import { Device } from "@/components/mockups/Device";
 import { RevenueCard } from "@/components/mockups/Cards";
 import { CreatorCard } from "@/components/mockups/CreatorCard";
 
@@ -75,9 +75,7 @@ function DeviceCluster() {
         <div className="absolute right-[-7%] top-[11vh] xl:right-[-4%]">
           <Parallax distance={62}>
             <motion.div {...float(1.4)}>
-              <PhoneShell className="[--ps:0.76] rotate-[11deg] xl:[--ps:0.84]">
-                <AppWorkout />
-              </PhoneShell>
+              <Device screen="workout" className="[--ps:0.76] rotate-[11deg] xl:[--ps:0.84]" />
             </motion.div>
           </Parallax>
         </div>
@@ -85,9 +83,7 @@ function DeviceCluster() {
         <div className="absolute right-[6%] top-[24vh] xl:right-[8%]">
           <Parallax distance={-72}>
             <motion.div {...float(0)}>
-              <PhoneShell className="[--ps:0.9] -rotate-[6deg] xl:[--ps:1.02]">
-                <AppHome />
-              </PhoneShell>
+              <Device screen="home" priority className="[--ps:0.9] -rotate-[6deg] xl:[--ps:1.02]" />
             </motion.div>
           </Parallax>
         </div>
@@ -128,9 +124,7 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1, ease: EASE }}
         >
-          <PhoneShell className="[--ps:0.62] rotate-[13deg] sm:[--ps:0.74]">
-            <AppHome />
-          </PhoneShell>
+          <Device screen="home" priority className="[--ps:0.62] rotate-[13deg] sm:[--ps:0.74]" />
         </motion.div>
       </div>
     </>

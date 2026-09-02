@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import { ScaleBox } from "./ScaleBox";
 
 const W = 880;
@@ -81,15 +82,15 @@ export function SiteMockup({ className = "" }: { className?: string }) {
             </div>
 
             <div className="col-span-5">
-              <div
-                className="plate h-[264px] w-full rounded-[10px]"
-                aria-hidden="true"
-              >
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="t-index text-[8.5px] uppercase tracking-[0.24em] text-bone-34">
-                    [ Creator image ]
-                  </span>
-                </div>
+              <div className="h-[264px] w-full overflow-hidden rounded-[10px]" aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={asset("/sculpte/cover-hero.webp")}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>

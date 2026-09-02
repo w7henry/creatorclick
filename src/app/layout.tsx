@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
+import { Cursor } from "@/components/ui/Cursor";
+import { Navbar } from "@/components/sections/Navbar";
+import { Footer } from "@/components/sections/Footer";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -52,10 +55,6 @@ export const metadata: Metadata = {
     title: `${SITE.name} — Turn attention into ownership`,
     description: SITE.description,
   },
-  icons: {
-    icon: "/favicon.png",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 export const viewport: Viewport = {
@@ -63,6 +62,23 @@ export const viewport: Viewport = {
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  slogan: SITE.tagline,
+  email: SITE.email,
+  areaServed: "Worldwide",
+  knowsAbout: [
+    "Creator monetization",
+    "Fitness app development",
+    "Digital product strategy",
+    "Revenue share partnerships",
+  ],
 };
 
 export default function RootLayout({
@@ -74,13 +90,24 @@ export default function RootLayout({
       className={`${archivo.variable} ${instrument.variable} ${jetbrains.variable}`}
     >
       <body className="bg-ink text-bone antialiased">
+        <script
+          type="application/ld+json"
+          // Static, author-controlled object — no user input reaches this string.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a
           href="#main"
           className="sr-only-focusable fixed left-4 top-4 z-[999] rounded-full bg-volt px-5 py-2 font-mono text-xs uppercase tracking-[0.18em] text-ink"
         >
           Skip to content
         </a>
+
+        <div className="grain" aria-hidden="true" />
+        <div className="vignette" aria-hidden="true" />
+        <Cursor />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
