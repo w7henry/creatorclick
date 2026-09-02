@@ -5,7 +5,7 @@ import { Mask, Reveal, DrawRule } from "@/components/ui/Reveal";
 import { Parallax } from "@/components/ui/Parallax";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { ArrowUpRight } from "@/components/ui/Icons";
-import { SiteMockup } from "@/components/mockups/SiteMockup";
+import { SiteShot } from "@/components/mockups/SiteShot";
 import { Device } from "@/components/mockups/Device";
 
 function OutLink({
@@ -203,7 +203,22 @@ export function CaseStudies({ as: H = "h2" }: { as?: "h1" | "h2" }) {
           <div className="col-span-12 lg:col-span-6">
             <Parallax distance={22}>
               <Reveal y={34} delay={0.1}>
-                <SiteMockup className="[--ps:0.35] sm:[--ps:0.5] md:[--ps:0.62] lg:[--ps:0.6] xl:[--ps:0.74]" />
+                <SiteShot
+                  caption={
+                    <>
+                      <a
+                        href="https://www.sculpte.fitness/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-wipe text-bone-50 transition-colors duration-300 hover:text-volt"
+                      >
+                        sculpte.fitness
+                      </a>{" "}
+                      &mdash; the site from case 01, shown as an example of
+                      what the open slot becomes.
+                    </>
+                  }
+                />
               </Reveal>
             </Parallax>
           </div>

@@ -88,6 +88,8 @@ WebP (≈550 KB for all eleven files):
 - `iphone-frame.webp` — device frame with a transparent screen cutout
 - `app-home / app-programs / app-workout.webp` — app screenshots
 - `onka.webp` — creator portrait
+- `site-sculpte.webp` — the live sculpte.fitness homepage, shown in browser
+  chrome by `SiteShot` in the case-study page's open slot
 - `cover-*.webp` — programme and section photography
 
 `Device` (`src/components/mockups/Device.tsx`) composites a screenshot behind
