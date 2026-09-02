@@ -5,7 +5,7 @@ export const SITE = {
   tagline: "You built the audience. We help you build the business.",
   description:
     "CreatorClick is a revenue-share product partner for fitness creators. We design and build premium websites, training apps and digital products — and only win when you win.",
-  applyHref: "#apply",
+  applyHref: "/apply",
   email: "partners@creator-click.com",
 
   /**

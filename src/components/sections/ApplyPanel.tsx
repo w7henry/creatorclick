@@ -3,9 +3,27 @@ import { Mask, Reveal } from "@/components/ui/Reveal";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { ApplyForm } from "./ApplyForm";
 
-export function FinalCta({ index = "05" }: { index?: string }) {
+const NEXT_STEPS = [
+  {
+    n: "01",
+    t: "We read it",
+    b: "Every application, personally. No form triage, no junior filter.",
+  },
+  {
+    n: "02",
+    t: "A call, if it fits",
+    b: "Thirty minutes on your audience, your method and what you actually want to own.",
+  },
+  {
+    n: "03",
+    t: "A thesis, not a deck",
+    b: "The product we think is there, and the partnership structure to build it.",
+  },
+];
+
+export function ApplyPanel() {
   return (
-    <section id="apply" className="relative overflow-hidden py-24 md:py-36">
+    <section id="apply" className="relative overflow-hidden py-20 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[-10%] left-1/2 h-[70vh] w-[130vw] -translate-x-1/2 opacity-80"
@@ -16,13 +34,13 @@ export function FinalCta({ index = "05" }: { index?: string }) {
       />
       <div
         aria-hidden="true"
-        className="diagonal-rule left-[-8%] top-[38%] w-[124%] rotate-[8deg] opacity-60"
+        className="diagonal-rule left-[-8%] top-[30%] w-[124%] rotate-[8deg] opacity-60"
       />
 
       <div className="shell relative">
-        <SectionTag index={index} label="Apply" />
+        <SectionTag index="→" label="Apply to partner" />
 
-        <h2 className="t-display t-display-tight t-optical mt-9 text-[15vw] leading-[0.81] sm:text-[12vw] lg:text-[clamp(3.6rem,8.6vw,9.6rem)]">
+        <h1 className="t-display t-display-tight t-optical mt-8 text-[12.5vw] leading-[0.82] sm:text-[9.5vw] lg:text-[clamp(2.8rem,6vw,6.6rem)]">
           <Mask>You built</Mask>
           <Mask delay={0.07}>the audience.</Mask>
           <Mask delay={0.14}>Now build</Mask>
@@ -31,9 +49,9 @@ export function FinalCta({ index = "05" }: { index?: string }) {
               something <span className="text-volt">you own.</span>
             </span>
           </Mask>
-        </h2>
+        </h1>
 
-        <div className="mt-20 grid grid-cols-12 gap-y-14 md:mt-28 lg:gap-x-12">
+        <div className="mt-14 grid grid-cols-12 gap-y-14 md:mt-20 lg:gap-x-12">
           <div className="col-span-12 lg:col-span-4">
             <Reveal>
               <p className="t-lead max-w-[30ch] text-bone">
@@ -45,13 +63,29 @@ export function FinalCta({ index = "05" }: { index?: string }) {
                 and a partnership structure &mdash; not a proposal deck.
               </p>
 
-              <div className="mt-10 border-t border-[var(--color-rule)] pt-7">
+              <ol className="mt-12">
+                {NEXT_STEPS.map((s) => (
+                  <li
+                    key={s.n}
+                    className="border-t border-[var(--color-rule)] py-5 last:border-b"
+                  >
+                    <div className="flex items-baseline gap-4">
+                      <span className="t-index text-[0.6rem] text-volt">{s.n}</span>
+                      <div>
+                        <p className="t-display text-[1.05rem] leading-none">{s.t}</p>
+                        <p className="t-body mt-2 max-w-[32ch] text-[0.9rem]">{s.b}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mt-10">
                 <p className="t-index text-[0.58rem] uppercase tracking-[0.2em] text-bone-34">
                   Or write directly
                 </p>
                 <a
                   href={`mailto:${SITE.email}`}
-                  data-cursor
                   className="link-wipe t-display mt-3 inline-block text-[1.15rem] tracking-[0.01em] md:text-[1.35rem]"
                 >
                   {SITE.email}
@@ -74,7 +108,6 @@ export function FinalCta({ index = "05" }: { index?: string }) {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

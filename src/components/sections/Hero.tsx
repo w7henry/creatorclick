@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { SITE } from "@/lib/site";
 import { Mask, Reveal } from "@/components/ui/Reveal";
 import { Parallax, ParallaxX } from "@/components/ui/Parallax";
@@ -55,36 +56,67 @@ function HeadlineMobile() {
   );
 }
 
+/* CSS keyframes rather than a Framer loop: these run on the compositor
+   instead of driving four rAF callbacks on the main thread every frame.
+   `.floaty` already no-ops under prefers-reduced-motion. */
+function Floaty({
+  seconds,
+  children,
+}: {
+  seconds: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className="floaty"
+      style={{ ["--float-duration" as string]: `${seconds}s` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 function DeviceCluster() {
-  const reduced = useReducedMotion();
-  const float = (d: number) =>
-    reduced
-      ? {}
-      : {
-          animate: { y: [0, -13, 0] },
-          transition: { duration: 8 + d, repeat: Infinity, ease: "easeInOut" as const },
-        };
+  // Server-rendered so desktop never flashes, then dropped on small viewports
+  // where it is display:none anyway — otherwise its parallax hooks and springs
+  // keep running for elements nobody can see.
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setWide(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   return (
     <>
       {/* ---------- desktop cluster ---------- */}
+      {wide && (
       <div
         className="pointer-events-none absolute inset-0 z-20 hidden lg:block"
         aria-hidden="true"
       >
         <div className="absolute right-[-7%] top-[11vh] xl:right-[-4%]">
           <Parallax distance={62}>
-            <motion.div {...float(1.4)}>
-              <Device screen="workout" className="[--ps:0.76] rotate-[11deg] xl:[--ps:0.84]" />
-            </motion.div>
+            <Floaty seconds={9.4}>
+              <Device
+                screen="workout"
+                className="gpu-layer [--ps:0.76] rotate-[11deg] xl:[--ps:0.84]"
+              />
+            </Floaty>
           </Parallax>
         </div>
 
         <div className="absolute right-[6%] top-[24vh] xl:right-[8%]">
           <Parallax distance={-72}>
-            <motion.div {...float(0)}>
-              <Device screen="home" priority className="[--ps:0.9] -rotate-[6deg] xl:[--ps:1.02]" />
-            </motion.div>
+            <Floaty seconds={8}>
+              <Device
+                screen="home"
+                priority
+                className="gpu-layer [--ps:0.9] -rotate-[6deg] xl:[--ps:1.02]"
+              />
+            </Floaty>
           </Parallax>
         </div>
 
@@ -94,12 +126,12 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.9, ease: EASE }}
         >
-          <motion.div {...float(2.6)}>
+          <Floaty seconds={10.6}>
             <CreatorCard
               title="Intense ABS workout"
               className="rotate-[-4deg] shadow-[0_34px_70px_-30px_rgba(0,0,0,0.9)]"
             />
-          </motion.div>
+          </Floaty>
         </motion.div>
 
         <motion.div
@@ -108,11 +140,13 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.95, ease: EASE }}
         >
-          <motion.div {...float(3.4)}>
+          <Floaty seconds={11.4}>
             <RevenueCard className="rotate-[3deg]" />
-          </motion.div>
+          </Floaty>
         </motion.div>
       </div>
+
+      )}
 
       {/* ---------- mobile: one device, cropped by two edges ---------- */}
       <div
@@ -124,7 +158,7 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1, ease: EASE }}
         >
-          <Device screen="home" priority className="[--ps:0.62] rotate-[13deg] sm:[--ps:0.74]" />
+          <Device screen="home" priority className="gpu-layer [--ps:0.62] rotate-[13deg] sm:[--ps:0.74]" />
         </motion.div>
       </div>
     </>
@@ -210,7 +244,6 @@ export function Hero() {
               </p>
               <a
                 href="#statement"
-                data-cursor
                 className="group mt-8 hidden items-center gap-3 lg:inline-flex"
                 aria-label="Scroll to next section"
               >

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/ui/PageMain";
 import { CaseStudies } from "@/components/sections/CaseStudies";
-import { FinalCta } from "@/components/sections/FinalCta";
+import { CtaBand } from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
   title: "Case studies",
@@ -13,7 +13,7 @@ export default function WorkPage() {
   return (
     <PageMain>
       <CaseStudies as="h1" />
-      <FinalCta index="02" />
+      <CtaBand />
     </PageMain>
   );
 }

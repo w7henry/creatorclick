@@ -33,10 +33,12 @@ export function Parallax({
     offset: ["start end", "end start"],
   });
 
+  // Tight enough to track the scroll closely — a soft spring reads as lag
+  // rather than as depth.
   const spring = useSpring(scrollYProgress, {
-    stiffness: 78,
-    damping: 24,
-    mass: 0.35,
+    stiffness: 140,
+    damping: 28,
+    mass: 0.28,
   });
 
   const y = useTransform(spring, [0, 1], [distance, -distance]);
@@ -85,9 +87,9 @@ export function ParallaxX({
     offset: ["start end", "end start"],
   });
   const spring = useSpring(scrollYProgress, {
-    stiffness: 70,
-    damping: 26,
-    mass: 0.4,
+    stiffness: 120,
+    damping: 28,
+    mass: 0.3,
   });
   const x = useTransform(spring, [0, 1], [from, to]);
 

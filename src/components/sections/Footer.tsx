@@ -32,7 +32,6 @@ export function Footer() {
               <li key={n.href}>
                 <Link
                   href={n.href}
-                  data-cursor
                   className="link-wipe text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
                 >
                   {n.label}
@@ -53,7 +52,6 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cursor
                   className="group inline-flex items-center gap-1.5 text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
                 >
                   {s.label}
@@ -72,7 +70,6 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${SITE.email}`}
-                data-cursor
                 className="link-wipe text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
               >
                 {SITE.email}
@@ -82,7 +79,6 @@ export function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  data-cursor
                   className="link-wipe text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
                 >
                   {l.label}
@@ -107,7 +103,6 @@ export function Footer() {
           </p>
           <a
             href="#main"
-            data-cursor
             className="t-index text-[0.58rem] uppercase tracking-[0.16em] text-bone-34 transition-colors duration-300 hover:text-bone"
           >
             Back to top ↑

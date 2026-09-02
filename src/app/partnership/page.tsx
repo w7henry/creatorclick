@@ -3,7 +3,7 @@ import { PageMain } from "@/components/ui/PageMain";
 import { RevenueShare } from "@/components/sections/RevenueShare";
 import { Selectivity } from "@/components/sections/Selectivity";
 import { FAQ } from "@/components/sections/FAQ";
-import { FinalCta } from "@/components/sections/FinalCta";
+import { CtaBand } from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
   title: "Partnership",
@@ -17,7 +17,7 @@ export default function PartnershipPage() {
       <RevenueShare as="h1" />
       <Selectivity />
       <FAQ />
-      <FinalCta index="04" />
+      <CtaBand />
     </PageMain>
   );
 }

@@ -73,7 +73,6 @@ export function Selectivity() {
           {CRITERIA.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.05}>
               <li
-                data-cursor
                 className="group relative grid grid-cols-12 items-baseline gap-x-5 gap-y-2 border-t border-[var(--color-rule)] py-7 transition-colors duration-500 last:border-b hover:bg-[rgba(242,240,234,0.02)] md:py-9"
               >
                 <span className="t-index col-span-2 text-[0.62rem] text-bone-34 transition-colors duration-500 group-hover:text-volt md:col-span-1">

@@ -3,7 +3,7 @@ import { Statement } from "@/components/sections/Statement";
 import { Problem } from "@/components/sections/Problem";
 import { Chapters } from "@/components/sections/Chapters";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { FinalCta } from "@/components/sections/FinalCta";
+import { CtaBand } from "@/components/ui/CtaBand";
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
       <Problem />
       <Chapters />
       <Philosophy />
-      <FinalCta />
+      <CtaBand />
     </main>
   );
 }

@@ -195,22 +195,19 @@ body {
    Texture: film grain + structural hairline grid
    ------------------------------------------------------------ */
 
-.grain {
+/* Grain and vignette share one fixed layer, and no mix-blend-mode.
+   Blending a full-viewport fixed layer forces the compositor to re-blend the
+   whole screen every scroll frame; alpha-compositing faint grey noise over a
+   near-black page looks the same and costs nothing. */
+.overlay-fx {
   position: fixed;
   inset: 0;
   z-index: 90;
   pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
-}
-
-.vignette {
-  position: fixed;
-  inset: 0;
-  z-index: 89;
-  pointer-events: none;
-  background: radial-gradient(125% 95% at 50% 40%, transparent 55%, rgba(0,0,0,0.26) 100%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E"),
+    radial-gradient(125% 95% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.26) 100%);
+  background-size: 260px 260px, 100% 100%;
 }
 
 .gridlines {
@@ -323,10 +320,11 @@ body {
   background: rgba(255,255,255,0.02);
 }
 
+/* No backdrop-filter: it forces a readback and blur of the backdrop on every
+   frame the card moves. Over near-black the blur is invisible anyway, so a
+   slightly more opaque fill reads identically. */
 .glass {
-  background: rgba(20, 20, 24, 0.62);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(23, 23, 28, 0.88);
   border: 1px solid var(--color-rule);
 }
 
@@ -520,4 +518,11 @@ body {
     transparent 1px 9px
   );
   pointer-events: none;
+}
+
+/* Opt-in compositor promotion for the hero's large rotated device art, so
+   scroll-linked parallax is a transform rather than a re-raster. */
+.gpu-layer {
+  will-change: transform;
+  backface-visibility: hidden;
 }

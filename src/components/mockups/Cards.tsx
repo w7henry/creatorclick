@@ -19,7 +19,7 @@ export function RevenueCard({ className = "" }: { className?: string }) {
     .join(" ");
 
   return (
-    <div className={`glass relative rounded-[16px] px-5 py-4 ${className}`} data-cursor>
+    <div className={`glass relative rounded-[16px] px-5 py-4 ${className}`}>
       <SampleTag />
       <p className="t-index text-[8px] uppercase tracking-[0.22em] text-bone-34">
         Recurring revenue
@@ -55,7 +55,7 @@ export function OwnershipCard({ className = "" }: { className?: string }) {
     ["Customer list", "Yours"],
   ];
   return (
-    <div className={`glass relative rounded-[16px] px-5 py-4 ${className}`} data-cursor>
+    <div className={`glass relative rounded-[16px] px-5 py-4 ${className}`}>
       <p className="t-index text-[8px] uppercase tracking-[0.22em] text-bone-34">
         Ownership ledger
       </p>

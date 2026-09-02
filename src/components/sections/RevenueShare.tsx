@@ -112,7 +112,6 @@ export function RevenueShare({ as: H = "h2" }: { as?: "h1" | "h2" }) {
             <div
               className="relative h-full rotate-[0.6deg] rounded-[22px] bg-volt p-7 text-ink md:p-10"
               style={{ boxShadow: "0 48px 90px -44px rgba(217,255,67,0.42)" }}
-              data-cursor
             >
               <div className="flex items-start justify-between gap-4">
                 <p className="t-index text-[0.6rem] uppercase tracking-[0.22em] text-ink/60">

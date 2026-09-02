@@ -58,7 +58,6 @@ function Item({
           onClick={onToggle}
           aria-expanded={open}
           aria-controls={id}
-          data-cursor
           className="group flex w-full items-start gap-5 py-6 text-left md:gap-8 md:py-8"
         >
           <span

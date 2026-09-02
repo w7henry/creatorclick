@@ -90,7 +90,6 @@ export function LegalDoc({ doc }: { doc: keyof typeof LEGAL }) {
                     type="button"
                     onClick={() => setLang(l)}
                     aria-pressed={lang === l}
-                    data-cursor
                     className={`t-index rounded-full px-4 py-2 text-[0.62rem] uppercase tracking-[0.16em] transition-colors duration-300 ${
                       lang === l
                         ? "bg-volt text-ink"
@@ -106,7 +105,6 @@ export function LegalDoc({ doc }: { doc: keyof typeof LEGAL }) {
             <div className="mt-10 border-t border-[var(--color-rule)] pt-6">
               <Link
                 href="/"
-                data-cursor
                 className="link-wipe t-index text-[0.62rem] uppercase tracking-[0.16em] text-bone-50"
               >
                 ← {ui.back}

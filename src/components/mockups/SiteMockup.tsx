@@ -14,7 +14,6 @@ export function SiteMockup({ className = "" }: { className?: string }) {
       <div
         className="h-full w-full overflow-hidden rounded-[14px] border border-[rgba(242,240,234,0.1)] bg-[#0A0A0C]"
         style={{ boxShadow: "0 50px 100px -40px rgba(0,0,0,0.95)" }}
-        data-cursor
       >
         <div className="browser-chrome">
           <span className="flex gap-1.5">
