@@ -47,7 +47,7 @@ export function Navbar() {
       <header
         className={`fixed inset-x-0 top-0 z-[80] transition-[background-color,border-color] duration-500 ${
           solid
-            ? "border-b border-[var(--color-rule)] bg-[rgba(11,11,12,0.94)]"
+            ? "border-b border-[var(--color-rule)] bg-[linear-gradient(180deg,rgba(11,11,12,0.97),rgba(11,11,12,0.88))]"
             : "border-b border-transparent"
         }`}
       >

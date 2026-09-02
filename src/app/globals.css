@@ -206,7 +206,7 @@ body {
   pointer-events: none;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E"),
-    radial-gradient(125% 95% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.26) 100%);
+    radial-gradient(118% 88% at 50% 34%, transparent 44%, rgba(0, 0, 0, 0.40) 100%);
   background-size: 260px 260px, 100% 100%;
 }
 
@@ -246,8 +246,8 @@ body {
 .marquee-host:hover .marquee-track { animation-play-state: paused; }
 
 @keyframes cc-float {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(0, -14px, 0); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(0, var(--float-y, -14px), 0) rotate(var(--float-r, 0deg)); }
 }
 .floaty { animation: cc-float var(--float-duration, 7s) ease-in-out infinite; }
 
@@ -324,8 +324,13 @@ body {
    frame the card moves. Over near-black the blur is invisible anyway, so a
    slightly more opaque fill reads identically. */
 .glass {
-  background: rgba(23, 23, 28, 0.88);
-  border: 1px solid var(--color-rule);
+  background:
+    linear-gradient(158deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.012) 46%),
+    rgba(18, 18, 22, 0.92);
+  border: 1px solid rgba(242, 240, 234, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 26px 52px -24px rgba(0, 0, 0, 0.92);
 }
 
 /* Primary CTA */
@@ -525,4 +530,12 @@ body {
 .gpu-layer {
   will-change: transform;
   backface-visibility: hidden;
+}
+
+/* Receding device: atmospheric perspective, so the back of the cluster reads
+   as further away rather than merely slower. A filter respects the frame's
+   alpha where a scrim rectangle would not, and on a promoted layer it
+   rasterises once rather than per frame. */
+.device-recede {
+  filter: brightness(0.5) saturate(0.8) contrast(0.95);
 }

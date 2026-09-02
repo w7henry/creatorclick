@@ -35,15 +35,18 @@ export function Device({
   screen,
   className = "",
   priority = false,
+  recede = false,
 }: {
   screen: ScreenKey;
   className?: string;
   priority?: boolean;
+  /** Tones the art down so it reads as sitting further back in the cluster. */
+  recede?: boolean;
 }) {
   const s = SCREENS[screen];
   return (
     <ScaleBox width={W} height={H} className={className}>
-      <div className="relative h-full w-full">
+      <div className={`relative h-full w-full ${recede ? "device-recede" : ""}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset(s.src)}

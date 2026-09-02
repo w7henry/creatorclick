@@ -61,15 +61,27 @@ function HeadlineMobile() {
    `.floaty` already no-ops under prefers-reduced-motion. */
 function Floaty({
   seconds,
+  y = -14,
+  rotate = 0,
   children,
 }: {
   seconds: number;
+  /** Travel at the top of the arc, px. */
+  y?: number;
+  /** Drift at the top of the arc, deg — composes with any Tailwind rotate. */
+  rotate?: number;
   children: React.ReactNode;
 }) {
   return (
     <div
       className="floaty"
-      style={{ ["--float-duration" as string]: `${seconds}s` }}
+      style={
+        {
+          "--float-duration": `${seconds}s`,
+          "--float-y": `${y}px`,
+          "--float-r": `${rotate}deg`,
+        } as React.CSSProperties
+      }
     >
       {children}
     </div>
@@ -98,10 +110,11 @@ function DeviceCluster() {
         aria-hidden="true"
       >
         <div className="absolute right-[-7%] top-[11vh] xl:right-[-4%]">
-          <Parallax distance={62}>
-            <Floaty seconds={9.4}>
+          <Parallax distance={96}>
+            <Floaty seconds={13.5} y={-9} rotate={0.5}>
               <Device
                 screen="workout"
+                recede
                 className="gpu-layer [--ps:0.76] rotate-[11deg] xl:[--ps:0.84]"
               />
             </Floaty>
@@ -109,8 +122,8 @@ function DeviceCluster() {
         </div>
 
         <div className="absolute right-[6%] top-[24vh] xl:right-[8%]">
-          <Parallax distance={-72}>
-            <Floaty seconds={8}>
+          <Parallax distance={-52}>
+            <Floaty seconds={10.5} y={-16} rotate={-0.6}>
               <Device
                 screen="home"
                 priority
@@ -126,7 +139,7 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.9, ease: EASE }}
         >
-          <Floaty seconds={10.6}>
+          <Floaty seconds={12.5} y={-19} rotate={1.1}>
             <CreatorCard
               title="Intense ABS workout"
               className="rotate-[-4deg] shadow-[0_34px_70px_-30px_rgba(0,0,0,0.9)]"
@@ -140,7 +153,7 @@ function DeviceCluster() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.95, ease: EASE }}
         >
-          <Floaty seconds={11.4}>
+          <Floaty seconds={15} y={-12} rotate={-0.9}>
             <RevenueCard className="rotate-[3deg]" />
           </Floaty>
         </motion.div>
