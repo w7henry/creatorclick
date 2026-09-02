@@ -21,10 +21,21 @@
   --color-bone-34:    rgba(242, 240, 234, 0.48);
   --color-bone-18:    rgba(242, 240, 234, 0.20);
 
-  /* The single accent. Used sparingly, never decoratively. */
+  /* ---- Accents, each with one job ----
+     volt  = the argument. Money words, CTAs, active states.
+     clay  = structure and warmth. Frames, rules, held-open slots.
+     cream = creator artifacts. Programme cards, product tiles.
+     Never two of them competing inside the same element. */
   --color-volt:       #D9FF43;
   --color-volt-deep:  #A9C81C;
   --color-volt-ink:   #0B0B0C;
+
+  --color-clay:       #E0A08C;
+  --color-clay-deep:  #C07E68;
+  --color-clay-soft:  rgba(224, 160, 140, 0.16);
+
+  --color-cream:      #ECEDB2;
+  --color-paper:      #FBFAF6;
 
   /* Hairlines */
   --color-rule:       rgba(242, 240, 234, 0.11);
@@ -46,6 +57,7 @@
   color-scheme: dark;
   --shell-pad: clamp(1.25rem, 4.5vw, 5.5rem);
   --shell-max: 1720px;
+  --header-h: 68px;
 }
 
 * { -webkit-tap-highlight-color: transparent; }
@@ -200,7 +212,7 @@ body {
   inset: 0;
   z-index: 89;
   pointer-events: none;
-  background: radial-gradient(120% 90% at 50% 40%, transparent 42%, rgba(0,0,0,0.42) 100%);
+  background: radial-gradient(125% 95% at 50% 40%, transparent 55%, rgba(0,0,0,0.26) 100%);
 }
 
 .gridlines {
@@ -210,6 +222,10 @@ body {
   background-image: linear-gradient(90deg, var(--color-rule-soft) 1px, transparent 1px);
   background-size: 25% 100%;
   mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+}
+
+@media (min-width: 768px) {
+  :root { --header-h: 78px; }
 }
 
 @media (min-width: 1024px) {
@@ -257,6 +273,10 @@ body {
    ------------------------------------------------------------ */
 
 .hairline-x { height: 1px; width: 100%; background: var(--color-rule); }
+
+.diagonal-rule-clay {
+  background: linear-gradient(90deg, transparent, var(--color-clay), transparent) !important;
+}
 
 .diagonal-rule {
   position: absolute;
@@ -445,4 +465,65 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+
+/* ------------------------------------------------------------
+   Light surfaces — cream and paper cards sitting on the dark
+   ------------------------------------------------------------ */
+
+.card-light {
+  color: var(--color-ink);
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 26px 60px -28px rgba(0, 0, 0, 0.85);
+}
+.card-cream { background: var(--color-cream); }
+.card-paper { background: var(--color-paper); }
+
+.pill-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  background: rgba(11, 11, 12, 0.09);
+  padding: 0.28rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* A clay frame turns a section into a plate — a picture inside the page.
+   Built from four bars rather than a border so the inner content can still
+   be full-bleed and scroll behind it. */
+.plate-frame > .plate-frame-bar {
+  position: absolute;
+  background: var(--color-clay);
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Placeholder plate, light variant — for use inside cream/paper cards */
+.plate-light {
+  position: relative;
+  overflow: hidden;
+  /* Reads as an empty photo slot, not a coloured panel — so the cream
+     around it stays the card's dominant note. */
+  background:
+    radial-gradient(80% 60% at 22% 14%, rgba(11, 11, 12, 0.16), transparent 62%),
+    linear-gradient(148deg, #CFC9BC 0%, #B2AC9D 55%, #DAD5C8 100%);
+}
+.plate-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(11, 11, 12, 0.09) 0 1px,
+    transparent 1px 9px
+  );
+  pointer-events: none;
 }

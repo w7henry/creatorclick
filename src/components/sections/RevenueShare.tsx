@@ -153,14 +153,18 @@ export function RevenueShare() {
             { a: "You bring", b: "the audience." },
             { a: "We build", b: "the infrastructure." },
             { a: "We share", b: "the upside.", volt: true },
-          ].map((row, i) => (
+          ].map((row, i) => {
+            /* Static so Tailwind sees them; the indent makes the triad
+               descend diagonally instead of stacking flush left. */
+            const step = ["md:pl-0", "md:pl-[8%]", "md:pl-[16%]"][i];
+            return (
             <Reveal key={row.b} delay={i * 0.08}>
               <div className="flex flex-col gap-1 border-t border-[var(--color-rule)] py-6 last:border-b md:flex-row md:items-baseline md:gap-8 md:py-8">
                 <span className="t-index w-16 shrink-0 text-[0.6rem] text-bone-34">
                   0{i + 1}
                 </span>
                 <p
-                  className={`t-display t-optical text-[9vw] leading-[0.88] sm:text-[6.4vw] lg:text-[clamp(2rem,3.9vw,4.3rem)] ${
+                  className={`t-display t-optical text-[9vw] leading-[0.88] sm:text-[6.4vw] lg:text-[clamp(2rem,3.9vw,4.3rem)] ${step} ${
                     row.volt ? "text-volt" : ""
                   }`}
                 >
@@ -168,7 +172,8 @@ export function RevenueShare() {
                 </p>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

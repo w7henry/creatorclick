@@ -156,11 +156,19 @@ export function CaseStudies() {
 
         {/* ---------- the open slot ---------- */}
         <article className="relative border-y border-[var(--color-rule)] py-16 md:py-24">
-          <div className="shell grid grid-cols-12 items-center gap-y-12 lg:gap-x-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 w-[42%]"
+            style={{
+              background:
+                "linear-gradient(90deg, var(--color-clay-soft), transparent 78%)",
+            }}
+          />
+          <div className="shell relative grid grid-cols-12 items-center gap-y-12 lg:gap-x-10">
             <div className="col-span-12 lg:col-span-6">
               <Reveal>
-                <span className="t-index text-[0.62rem] text-volt">Case 03</span>
-                <h3 className="t-display t-display-tight t-optical mt-6 text-[13vw] leading-[0.84] sm:text-[9vw] lg:text-[clamp(2.6rem,5vw,5.6rem)]">
+                <span className="t-index text-[0.62rem] text-clay">Case 03</span>
+                <h3 className="t-display t-display-tight t-optical mt-6 text-[13vw] leading-[0.84] text-clay sm:text-[9vw] lg:text-[clamp(2.6rem,5vw,5.6rem)]">
                   Reserved.
                 </h3>
                 <p className="t-body mt-7 max-w-[38ch]">
@@ -171,12 +179,12 @@ export function CaseStudies() {
                 <a
                   href={SITE.applyHref}
                   data-cursor
-                  className="group mt-9 inline-flex items-center gap-4 border-b border-bone-18 pb-2 transition-colors duration-500 hover:border-volt"
+                  className="group mt-9 inline-flex items-center gap-4 border-b border-clay/45 pb-2 transition-colors duration-500 hover:border-clay"
                 >
                   <span className="t-display text-[1.15rem] uppercase tracking-[0.02em]">
                     Apply to partner
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-volt transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="h-4 w-4 text-clay transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </Reveal>
             </div>

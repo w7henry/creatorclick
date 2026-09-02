@@ -27,7 +27,23 @@ export function Philosophy() {
 
   return (
     <section ref={ref} id="philosophy" className="relative h-[190vh] md:h-[260vh]">
-      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+      <div
+        className="sticky top-0 flex h-[100svh] items-center overflow-hidden"
+        style={{
+          ["--fw" as string]: "clamp(10px, 1.5vw, 24px)",
+          /* start below the fixed header so all four bars read as one frame */
+          ["--fh" as string]: "var(--header-h)",
+        }}
+      >
+        {/* Clay frame: while the section is pinned it reads as a plate —
+            a picture held inside the page rather than another dark band. */}
+        <div className="plate-frame pointer-events-none absolute inset-0" aria-hidden="true">
+          <span className="plate-frame-bar inset-x-0 top-[var(--fh)] h-[var(--fw)]" />
+          <span className="plate-frame-bar inset-x-0 bottom-0 h-[var(--fw)]" />
+          <span className="plate-frame-bar bottom-0 left-0 top-[var(--fh)] w-[var(--fw)]" />
+          <span className="plate-frame-bar bottom-0 right-0 top-[var(--fh)] w-[var(--fw)]" />
+        </div>
+
         {/* cinematic backdrop */}
         <motion.div
           aria-hidden="true"

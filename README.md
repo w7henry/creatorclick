@@ -128,8 +128,14 @@ Tokens live in the `@theme` block at the top of `globals.css`:
 - **Type** `--color-bone` `#F2F0EA`, plus alpha steps tuned to clear WCAG AA
   (4.5:1) on the base surface. `--color-bone-18` is ornament only — hairlines
   and outline strokes, never text.
-- **Accent** `--color-volt` `#D9FF43`, one accent used sparingly. 17:1 against
-  the base surface in both directions.
+- **Accents**, each with exactly one job, never two competing in the same
+  element:
+  - `--color-volt` `#D9FF43` — *the argument*. Money words, CTAs, active
+    states, the partnership panel. 17:1 against the base surface both ways.
+  - `--color-clay` `#E0A08C` — *structure and warmth*. The frame around the
+    philosophy section, the held-open case-study slot, the closing diagonal.
+  - `--color-cream` `#ECEDB2` / `--color-paper` `#FBFAF6` — *creator
+    artifacts*. Programme cards and product tiles, ink text on light.
 
 Typographic roles: `.t-display` (heavy grotesque, tight tracking),
 `.t-serif` (italic counterpoint — one or two words per headline, never more),

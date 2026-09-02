@@ -16,7 +16,7 @@ export function FinalCta() {
       />
       <div
         aria-hidden="true"
-        className="diagonal-rule left-[-8%] top-[38%] w-[124%] rotate-[8deg]"
+        className="diagonal-rule diagonal-rule-clay left-[-8%] top-[38%] w-[124%] rotate-[8deg] opacity-60"
       />
 
       <div className="shell relative">

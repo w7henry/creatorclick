@@ -7,7 +7,8 @@ import { Parallax, ParallaxX } from "@/components/ui/Parallax";
 import { ApplyButton } from "@/components/ui/Cta";
 import { ArrowDown } from "@/components/ui/Icons";
 import { AppHome, AppWorkout, PhoneShell } from "@/components/mockups/Phone";
-import { MemberCard, RevenueCard } from "@/components/mockups/Cards";
+import { RevenueCard } from "@/components/mockups/Cards";
+import { CreatorCard } from "@/components/mockups/CreatorCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -92,13 +93,16 @@ function DeviceCluster() {
         </div>
 
         <motion.div
-          className="absolute right-[25%] top-[13vh] xl:right-[27%]"
+          className="absolute right-[24%] top-[10vh] xl:right-[26%]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.9, ease: EASE }}
         >
           <motion.div {...float(2.6)}>
-            <MemberCard className="rotate-[-4deg]" />
+            <CreatorCard
+              title="Intense ABS workout"
+              className="rotate-[-4deg] shadow-[0_34px_70px_-30px_rgba(0,0,0,0.9)]"
+            />
           </motion.div>
         </motion.div>
 

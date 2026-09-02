@@ -179,38 +179,69 @@ export function Products() {
           <div className="col-span-12 lg:col-span-7 lg:col-start-6">
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
-                { t: "12-week hypertrophy", k: "Programme", m: "App + PDF" },
-                { t: "The inner circle", k: "Membership", m: "Monthly" },
-                { t: "Six-week reset", k: "Challenge", m: "Cohort" },
-                { t: "Form library", k: "Vault", m: "Included" },
-              ].map((c, i) => (
-                <Reveal key={c.t} delay={0.05 * i} y={26}>
-                  <article
-                    data-cursor
-                    className={`group relative overflow-hidden rounded-[16px] border border-[var(--color-rule)] bg-[rgba(242,240,234,0.02)] p-3.5 transition-colors duration-500 hover:border-bone-18 sm:p-4 ${
-                      i % 2 === 1 ? "sm:translate-y-8" : ""
-                    }`}
-                  >
-                    <Plate
-                      label={c.k}
-                      ratio="4/3"
-                      className="rounded-[10px]"
-                      index={`0${i + 1}`}
-                    />
-                    <div className="mt-4 flex items-start justify-between gap-3">
-                      <div>
-                        <p className="t-display text-[1.05rem] leading-tight sm:text-[1.2rem]">
-                          {c.t}
-                        </p>
-                        <p className="t-index mt-1.5 text-[0.56rem] uppercase tracking-[0.18em] text-bone-34">
-                          {c.k} &middot; {c.m}
-                        </p>
+                { t: "12-week hypertrophy", k: "Programme", m: "App + PDF", tone: "dark" },
+                { t: "The inner circle", k: "Membership", m: "Monthly", tone: "cream" },
+                { t: "Six-week reset", k: "Challenge", m: "Cohort", tone: "dark" },
+                { t: "Form library", k: "Vault", m: "Included", tone: "paper" },
+              ].map((c, i) => {
+                const light = c.tone !== "dark";
+                return (
+                  <Reveal key={c.t} delay={0.05 * i} y={26}>
+                    <article
+                      data-cursor
+                      className={`group relative overflow-hidden rounded-[16px] p-3.5 transition-colors duration-500 sm:p-4 ${
+                        light
+                          ? `card-light ${c.tone === "cream" ? "card-cream" : "card-paper"}`
+                          : "border border-[var(--color-rule)] bg-[rgba(242,240,234,0.02)] hover:border-bone-18"
+                      } ${i % 2 === 1 ? "sm:translate-y-8" : ""}`}
+                    >
+                      {light ? (
+                        <span
+                          className="plate-light relative block w-full rounded-[10px]"
+                          style={{ aspectRatio: "16/10" }}
+                          aria-hidden="true"
+                        >
+                          <span className="t-index absolute left-3 top-3 text-[0.55rem] text-ink/45">
+                            0{i + 1}
+                          </span>
+                          <span className="absolute inset-0 grid place-items-center">
+                            <span className="t-index text-[0.55rem] uppercase tracking-[0.24em] text-ink/45">
+                              [ {c.k} ]
+                            </span>
+                          </span>
+                        </span>
+                      ) : (
+                        <Plate
+                          label={c.k}
+                          ratio="4/3"
+                          className="rounded-[10px]"
+                          index={`0${i + 1}`}
+                        />
+                      )}
+
+                      <div className="mt-4 flex items-start justify-between gap-3">
+                        <div>
+                          <p className="t-display text-[1.05rem] leading-tight sm:text-[1.2rem]">
+                            {c.t}
+                          </p>
+                          <p
+                            className={`t-index mt-1.5 text-[0.56rem] uppercase tracking-[0.18em] ${
+                              light ? "text-ink/55" : "text-bone-34"
+                            }`}
+                          >
+                            {c.k} &middot; {c.m}
+                          </p>
+                        </div>
+                        <ArrowUpRight
+                          className={`mt-0.5 h-4 w-4 shrink-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
+                            light ? "text-ink/45 group-hover:text-ink" : "text-bone-34 group-hover:text-volt"
+                          }`}
+                        />
                       </div>
-                      <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-bone-34 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-volt" />
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </div>
