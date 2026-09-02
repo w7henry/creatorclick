@@ -18,7 +18,7 @@ const PARTNERSHIP = [
   "We only grow when the product grows",
 ];
 
-export function RevenueShare() {
+export function RevenueShare({ as: H = "h2" }: { as?: "h1" | "h2" }) {
   return (
     <section
       id="partnership"
@@ -44,15 +44,15 @@ export function RevenueShare() {
       <div className="shell relative">
         <div className="grid grid-cols-12 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
-            <SectionTag index="05" label="The partnership" />
-            <h2 className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.2vw,7.9rem)]">
+            <SectionTag index="01" label="The partnership" />
+            <H className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.2vw,7.9rem)]">
               <Mask>We don&rsquo;t win</Mask>
               <Mask delay={0.08}>
                 <span>
                   Unless <span className="text-volt">you</span> win.
                 </span>
               </Mask>
-            </h2>
+            </H>
           </div>
 
           <div className="col-span-12 space-y-6 lg:col-span-4 lg:col-start-9 lg:self-end lg:pb-3">

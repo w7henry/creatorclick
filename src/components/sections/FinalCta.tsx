@@ -3,7 +3,7 @@ import { Mask, Reveal } from "@/components/ui/Reveal";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { ApplyForm } from "./ApplyForm";
 
-export function FinalCta() {
+export function FinalCta({ index = "05" }: { index?: string }) {
   return (
     <section id="apply" className="relative overflow-hidden py-24 md:py-36">
       <div
@@ -16,11 +16,11 @@ export function FinalCta() {
       />
       <div
         aria-hidden="true"
-        className="diagonal-rule diagonal-rule-clay left-[-8%] top-[38%] w-[124%] rotate-[8deg] opacity-60"
+        className="diagonal-rule left-[-8%] top-[38%] w-[124%] rotate-[8deg] opacity-60"
       />
 
       <div className="shell relative">
-        <SectionTag index="11" label="Apply" />
+        <SectionTag index={index} label="Apply" />
 
         <h2 className="t-display t-display-tight t-optical mt-9 text-[15vw] leading-[0.81] sm:text-[12vw] lg:text-[clamp(3.6rem,8.6vw,9.6rem)]">
           <Mask>You built</Mask>

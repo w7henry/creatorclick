@@ -22,17 +22,15 @@
   --color-bone-18:    rgba(242, 240, 234, 0.20);
 
   /* ---- Accents, each with one job ----
-     volt  = the argument. Money words, CTAs, active states.
-     clay  = structure and warmth. Frames, rules, held-open slots.
+     volt  = the argument, plus structure: CTAs, active states, the frame
+             around the philosophy plate, the held-open case slot.
      cream = creator artifacts. Programme cards, product tiles.
      Never two of them competing inside the same element. */
   --color-volt:       #D9FF43;
   --color-volt-deep:  #A9C81C;
   --color-volt-ink:   #0B0B0C;
 
-  --color-clay:       #E0A08C;
-  --color-clay-deep:  #C07E68;
-  --color-clay-soft:  rgba(224, 160, 140, 0.16);
+  --color-volt-soft:  rgba(217, 255, 67, 0.14);
 
   --color-cream:      #ECEDB2;
   --color-paper:      #FBFAF6;
@@ -274,10 +272,6 @@ body {
 
 .hairline-x { height: 1px; width: 100%; background: var(--color-rule); }
 
-.diagonal-rule-clay {
-  background: linear-gradient(90deg, transparent, var(--color-clay), transparent) !important;
-}
-
 .diagonal-rule {
   position: absolute;
   height: 1px;
@@ -501,7 +495,7 @@ body {
    be full-bleed and scroll behind it. */
 .plate-frame > .plate-frame-bar {
   position: absolute;
-  background: var(--color-clay);
+  background: var(--color-volt);
   z-index: 30;
   pointer-events: none;
 }

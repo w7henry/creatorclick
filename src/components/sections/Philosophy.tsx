@@ -50,13 +50,11 @@ export function Philosophy() {
           className="pointer-events-none absolute inset-0"
           style={{ scale: s(plateScale), opacity: s(plateOpacity) }}
         >
-          {/* Swap in a real still: <Plate src="/philosophy.jpg" … /> */}
           <Plate
-            label="Full-bleed creator film still"
+            src="/sculpte/cover-fullbody.webp"
+            alt=""
             ratio="auto"
             className="h-full w-full border-0"
-            glow={false}
-            showLabel={false}
           />
         </motion.div>
         <div
@@ -69,7 +67,7 @@ export function Philosophy() {
         />
 
         <div className="shell relative w-full">
-          <SectionTag index="09" label="Philosophy" className="mb-10 md:mb-14" />
+          <SectionTag index="04" label="Philosophy" className="mb-10 md:mb-14" />
 
           <div className="relative h-[42vh] sm:h-[38vh] lg:h-[34vh]">
             <motion.p

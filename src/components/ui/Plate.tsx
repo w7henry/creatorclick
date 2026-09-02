@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 /**
  * PLATE — art-directed media slot.
  *
@@ -37,7 +39,7 @@ export function Plate({
       {src ? (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
-          src={src}
+          src={asset(src)}
           alt={alt}
           loading="lazy"
           decoding="async"

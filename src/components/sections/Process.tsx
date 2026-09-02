@@ -57,7 +57,7 @@ export function Process() {
       <div className="shell">
         <div className="grid grid-cols-12 gap-y-10">
           <div className="col-span-12 lg:col-span-8">
-            <SectionTag index="06" label="How it works" />
+            <SectionTag index="02" label="How it works" />
             <h2 className="t-display t-display-tight t-optical mt-8 text-[14.5vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.2vw,7.9rem)]">
               <Mask>From content</Mask>
               <Mask delay={0.08}>

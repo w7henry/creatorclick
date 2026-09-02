@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 /**
  * A creator's own programme, as a product tile.
  *
@@ -11,7 +13,7 @@ export function CreatorCard({
   minutes = "26 min",
   handle = "@yourhandle",
   tone = "cream",
-  src,
+  src = "/sculpte/cover-glutes.webp",
   className = "",
 }: {
   title: string;
@@ -46,7 +48,7 @@ export function CreatorCard({
       <div className="mt-3 flex items-end gap-3">
         <div className="min-w-0 flex-1">
           <span className="flex items-center gap-1.5">
-            <span className="h-3.5 w-3.5 shrink-0 rounded-full bg-clay" />
+            <span className="h-3.5 w-3.5 shrink-0 rounded-full bg-volt" />
             <span className="t-index truncate text-[0.55rem] uppercase tracking-[0.14em] text-ink/60">
               {handle}
             </span>

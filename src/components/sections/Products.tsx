@@ -4,7 +4,7 @@ import { Mask, Reveal, DrawRule } from "@/components/ui/Reveal";
 import { Parallax } from "@/components/ui/Parallax";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { SiteMockup } from "@/components/mockups/SiteMockup";
-import { AppHome, AppMembership, AppWorkout, PhoneShell } from "@/components/mockups/Phone";
+import { Device } from "@/components/mockups/Device";
 import { Plate } from "@/components/ui/Plate";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
@@ -39,20 +39,20 @@ function Spec({ items }: { items: string[] }) {
 
 /* ------------------------------------------------------------------ */
 
-export function Products() {
+export function Products({ as: H = "h2" }: { as?: "h1" | "h2" }) {
   return (
     <section id="build" className="relative overflow-hidden py-24 md:py-36">
       {/* ---------- section headline ---------- */}
       <div className="shell grid grid-cols-12 gap-y-10">
         <div className="col-span-12 lg:col-span-8">
-          <SectionTag index="04" label="What we build" />
-          <h2 className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.1vw,7.8rem)]">
+          <SectionTag index="01" label="What we build" />
+          <H className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.1vw,7.8rem)]">
             <Mask>Your name.</Mask>
             <Mask delay={0.07}>Your product.</Mask>
             <Mask delay={0.14}>
               <span className="t-serif">Your business.</span>
             </Mask>
-          </h2>
+          </H>
         </div>
         <div className="col-span-12 lg:col-span-3 lg:col-start-10 lg:self-end lg:pb-3">
           <Reveal delay={0.2}>
@@ -109,23 +109,17 @@ export function Products() {
             <div className="relative h-[24rem] sm:h-[30rem] lg:h-[38rem] lg:-ml-[16vw] xl:-ml-[12vw]">
               <Parallax distance={-42} className="absolute left-0 top-[3rem] z-10 lg:left-[2%]">
                 <Reveal y={40}>
-                  <PhoneShell className="[--ps:0.44] rotate-[-9deg] sm:[--ps:0.56] lg:[--ps:0.72]">
-                    <AppWorkout />
-                  </PhoneShell>
+                  <Device screen="workout" className="[--ps:0.44] rotate-[-9deg] sm:[--ps:0.56] lg:[--ps:0.72]" />
                 </Reveal>
               </Parallax>
               <Parallax distance={26} className="absolute left-[26%] top-0 z-20">
                 <Reveal y={40} delay={0.08}>
-                  <PhoneShell className="[--ps:0.5] rotate-[2deg] sm:[--ps:0.64] lg:[--ps:0.82]">
-                    <AppHome />
-                  </PhoneShell>
+                  <Device screen="home" className="[--ps:0.5] rotate-[2deg] sm:[--ps:0.64] lg:[--ps:0.82]" />
                 </Reveal>
               </Parallax>
               <Parallax distance={-18} className="absolute left-[58%] top-[4.5rem] z-10">
                 <Reveal y={40} delay={0.16}>
-                  <PhoneShell className="[--ps:0.44] rotate-[11deg] sm:[--ps:0.56] lg:[--ps:0.72]">
-                    <AppMembership />
-                  </PhoneShell>
+                  <Device screen="programs" className="[--ps:0.44] rotate-[11deg] sm:[--ps:0.56] lg:[--ps:0.72]" />
                 </Reveal>
               </Parallax>
             </div>
@@ -179,10 +173,10 @@ export function Products() {
           <div className="col-span-12 lg:col-span-7 lg:col-start-6">
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
-                { t: "12-week hypertrophy", k: "Programme", m: "App + PDF", tone: "dark" },
-                { t: "The inner circle", k: "Membership", m: "Monthly", tone: "cream" },
-                { t: "Six-week reset", k: "Challenge", m: "Cohort", tone: "dark" },
-                { t: "Form library", k: "Vault", m: "Included", tone: "paper" },
+                { t: "12-week hypertrophy", k: "Programme", m: "App + PDF", tone: "dark", img: "/sculpte/cover-glutes.webp" },
+                { t: "The inner circle", k: "Membership", m: "Monthly", tone: "cream", img: "/sculpte/cover-community.webp" },
+                { t: "Six-week reset", k: "Challenge", m: "Cohort", tone: "dark", img: "/sculpte/cover-running.webp" },
+                { t: "Form library", k: "Vault", m: "Included", tone: "paper", img: "/sculpte/cover-upperbody.webp" },
               ].map((c, i) => {
                 const light = c.tone !== "dark";
                 return (
@@ -196,26 +190,18 @@ export function Products() {
                       } ${i % 2 === 1 ? "sm:translate-y-8" : ""}`}
                     >
                       {light ? (
-                        <span
-                          className="plate-light relative block w-full rounded-[10px]"
-                          style={{ aspectRatio: "16/10" }}
-                          aria-hidden="true"
-                        >
-                          <span className="t-index absolute left-3 top-3 text-[0.55rem] text-ink/45">
-                            0{i + 1}
-                          </span>
-                          <span className="absolute inset-0 grid place-items-center">
-                            <span className="t-index text-[0.55rem] uppercase tracking-[0.24em] text-ink/45">
-                              [ {c.k} ]
-                            </span>
-                          </span>
-                        </span>
+                        <Plate
+                          src={c.img}
+                          alt=""
+                          ratio="16/10"
+                          className="rounded-[10px]"
+                        />
                       ) : (
                         <Plate
-                          label={c.k}
+                          src={c.img}
+                          alt=""
                           ratio="4/3"
                           className="rounded-[10px]"
-                          index={`0${i + 1}`}
                         />
                       )}
 
@@ -251,7 +237,16 @@ export function Products() {
         <DrawRule />
         <Reveal delay={0.1}>
           <p className="t-index mt-7 text-[0.66rem] uppercase tracking-[0.18em] text-bone-34">
-            All interfaces on this page are design specimens &mdash; not client work.
+            App screens are the live SCULPTÉ product, built with{" "}
+            <a
+              href="https://www.tiktok.com/@onka_kegakilwe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-wipe text-bone-70 transition-colors duration-300 hover:text-volt"
+            >
+              @onka_kegakilwe
+            </a>
+            .
           </p>
         </Reveal>
       </div>

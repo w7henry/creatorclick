@@ -1,11 +1,11 @@
+import Link from "next/link";
 import { SITE } from "@/lib/site";
-import { Mark, ArrowUpRight } from "@/components/ui/Icons";
+import { Logo } from "@/components/ui/Logo";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 const SOCIAL = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "TikTok", href: "https://tiktok.com" },
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "TikTok", href: "https://www.tiktok.com/@onka_kegakilwe" },
+  { label: "SCULPTÉ", href: "https://www.sculpte.fitness/" },
 ];
 
 export function Footer() {
@@ -15,12 +15,7 @@ export function Footer() {
     <footer className="relative border-t border-[var(--color-rule)] pt-16 md:pt-20">
       <div className="shell grid grid-cols-12 gap-y-12 pb-12 md:pb-14">
         <div className="col-span-12 lg:col-span-5">
-          <div className="flex items-center gap-3">
-            <Mark className="h-7 w-7" />
-            <span className="t-display text-[0.98rem] tracking-[0.13em]">
-              {SITE.wordmark}
-            </span>
-          </div>
+          <Logo markClass="h-8 w-8" textClass="text-[0.98rem]" />
           <p className="t-lead mt-7 max-w-[26ch]">
             You built the audience.
             <br />
@@ -35,13 +30,13 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {SITE.nav.map((n) => (
               <li key={n.href}>
-                <a
+                <Link
                   href={n.href}
                   data-cursor
                   className="link-wipe text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
                 >
                   {n.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -49,7 +44,7 @@ export function Footer() {
 
         <div className="col-span-6 sm:col-span-4 lg:col-span-2">
           <p className="t-index text-[0.56rem] uppercase tracking-[0.2em] text-bone-34">
-            Social
+            Elsewhere
           </p>
           <ul className="mt-5 space-y-3">
             {SOCIAL.map((s) => (
@@ -83,15 +78,17 @@ export function Footer() {
                 {SITE.email}
               </a>
             </li>
-            <li>
-              <a
-                href={SITE.applyHref}
-                data-cursor
-                className="link-wipe text-[0.92rem] text-volt"
-              >
-                Apply to partner
-              </a>
-            </li>
+            {SITE.legal.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  data-cursor
+                  className="link-wipe text-[0.92rem] text-bone-70 transition-colors duration-300 hover:text-bone"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -109,7 +106,7 @@ export function Footer() {
             © {year} {SITE.name} — Revenue-share product partner for creators.
           </p>
           <a
-            href="#top"
+            href="#main"
             data-cursor
             className="t-index text-[0.58rem] uppercase tracking-[0.16em] text-bone-34 transition-colors duration-300 hover:text-bone"
           >

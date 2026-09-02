@@ -58,24 +58,3 @@ export const Play = (p: I) => (
     <path d="M8 5.5v13l11-6.5-11-6.5Z" />
   </svg>
 );
-
-/**
- * Brand mark: a voltage tile rotated off-axis, carrying the "click" arrow.
- * The tilt is the same angle used by the diagonal rules across the page.
- */
-export const Mark = ({ className = "" }: { className?: string }) => (
-  <span
-    className={`relative inline-grid place-items-center ${className}`}
-    aria-hidden="true"
-  >
-    <span className="absolute inset-0 -rotate-[9deg] rounded-[7px] bg-volt" />
-    <svg viewBox="0 0 24 24" fill="none" className="relative h-[54%] w-[54%] text-ink">
-      <path
-        d="M7 17 17 7M17 7H9.6M17 7v7.4"
-        stroke="currentColor"
-        strokeWidth="2.6"
-        strokeLinecap="square"
-      />
-    </svg>
-  </span>
-);

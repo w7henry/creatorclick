@@ -16,7 +16,7 @@ export function Selectivity() {
     <section id="selectivity" className="relative overflow-hidden py-24 md:py-36">
       <div className="shell grid grid-cols-12 gap-y-14 lg:gap-x-10">
         <div className="col-span-12 lg:col-span-7">
-          <SectionTag index="07" label="Selectivity" />
+          <SectionTag index="02" label="Selectivity" />
           <h2 className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,6.9vw,7.6rem)]">
             <Mask>We don&rsquo;t work</Mask>
             <Mask delay={0.08}>
@@ -45,8 +45,8 @@ export function Selectivity() {
             <Reveal y={34}>
               <div className="relative">
                 <Plate
-                  label="Creator portrait"
-                  hint="/public/creators/*.jpg"
+                  src="/sculpte/cover-hero.webp"
+                  alt=""
                   ratio="4/5"
                   className="rotate-[1.5deg] rounded-[18px]"
                 />
