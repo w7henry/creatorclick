@@ -22,7 +22,6 @@ function OutLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      data-cursor
       className="group flex items-baseline justify-between gap-6 border-t border-[var(--color-rule)] py-4 transition-colors duration-500 last:border-b hover:border-volt/40"
     >
       <span className="t-index text-[0.58rem] uppercase tracking-[0.2em] text-bone-34">
@@ -191,7 +190,6 @@ export function CaseStudies({ as: H = "h2" }: { as?: "h1" | "h2" }) {
               </p>
               <a
                 href={SITE.applyHref}
-                data-cursor
                 className="group mt-9 inline-flex items-center gap-4 border-b border-volt/45 pb-2 transition-colors duration-500 hover:border-volt"
               >
                 <span className="t-display text-[1.15rem] uppercase tracking-[0.02em]">

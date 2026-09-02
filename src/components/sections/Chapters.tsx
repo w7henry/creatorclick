@@ -44,7 +44,6 @@ export function Chapters() {
               <li>
                 <Link
                   href={c.href}
-                  data-cursor
                   className="group grid grid-cols-12 items-baseline gap-x-5 gap-y-2 border-t border-[var(--color-rule)] py-7 transition-colors duration-500 hover:bg-[rgba(242,240,234,0.02)] md:py-9 [&:last-child]:border-b"
                 >
                   <span className="t-index col-span-2 text-[0.62rem] text-bone-34 transition-colors duration-500 group-hover:text-volt md:col-span-1">

@@ -34,7 +34,6 @@ export function Plate({
     <div
       className={`plate ${className}`}
       style={{ aspectRatio: ratio }}
-      data-cursor
     >
       {src ? (
         /* eslint-disable-next-line @next/next/no-img-element */

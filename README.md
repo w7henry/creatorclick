@@ -34,11 +34,12 @@ npm run typecheck
 | `/what-we-build` | Websites, training apps, digital products |
 | `/partnership` | Revenue share, selectivity, FAQ |
 | `/work` | SCULPTÉ case study |
+| `/apply` | The partnership application form |
 | `/legal/imprint` | Impressum / legal notice (EN + DE) |
 | `/legal/privacy` | Datenschutzerklärung / privacy policy (EN + DE) |
 
-Every content page ends with the application form (`#apply`), so the header
-CTA always has a target on the current page.
+The form lives only on `/apply`; every other page closes with a CTA band that
+links there, so the header CTA has one destination site-wide.
 
 ## Deployment
 
@@ -159,7 +160,26 @@ Typographic roles: `.t-display` (heavy grotesque, tight tracking), `.t-serif`
 Skip link, semantic landmarks, exactly one `h1` per page, real
 `<button>`/`<fieldset>` controls with `aria-expanded`/`aria-controls`, visible
 `:focus-visible` rings, and a full `prefers-reduced-motion` path that disables
-parallax, floats, marquees and the custom cursor.
+parallax, floats and marquees.
+
+### Performance
+
+Scroll is frame-locked at 60fps with a 4× CPU throttle (~16.7 ms average frame,
+p95 17.9 ms, no long tasks). The rules that keep it there:
+
+- **No `mix-blend-mode` or `backdrop-filter` anywhere.** Both force the
+  compositor to re-read and re-blend the backdrop every frame. Grain and
+  vignette are one fixed alpha-composited layer; `.glass` is a solid fill; the
+  header uses an opaque background rather than a live blur.
+- **Idle motion is CSS, not JavaScript.** The floating cards and devices use
+  `.floaty` keyframes so they animate off the main thread, instead of Framer
+  rAF loops.
+- **The hero's rotated device art carries `.gpu-layer`** so scroll-linked
+  parallax is a transform on a cached layer, not a re-raster of a large image.
+- **The desktop device cluster unmounts below `lg`.** It is `display:none`
+  there, but its `useScroll` hooks and springs would otherwise keep running.
+- Parallax springs are tight (stiffness 140) — a soft spring reads as lag
+  rather than as depth.
 
 ---
 

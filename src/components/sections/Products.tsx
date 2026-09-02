@@ -182,7 +182,6 @@ export function Products({ as: H = "h2" }: { as?: "h1" | "h2" }) {
                 return (
                   <Reveal key={c.t} delay={0.05 * i} y={26}>
                     <article
-                      data-cursor
                       className={`group relative overflow-hidden rounded-[16px] p-3.5 transition-colors duration-500 sm:p-4 ${
                         light
                           ? `card-light ${c.tone === "cream" ? "card-cream" : "card-paper"}`

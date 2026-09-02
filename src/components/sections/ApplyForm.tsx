@@ -158,7 +158,7 @@ export function ApplyForm() {
         </legend>
         <div className="mt-4 flex flex-wrap gap-2">
           {SIZES.map((s, i) => (
-            <label key={s} className="cursor-pointer" data-cursor>
+            <label key={s} className="cursor-pointer">
               <input type="radio" name="audience" value={s} defaultChecked={i === 1} className="peer sr-only" />
               <span className="t-index block rounded-full border border-[var(--color-rule)] px-4 py-2 text-[0.62rem] uppercase tracking-[0.14em] text-bone-50 transition-colors duration-300 peer-checked:border-volt peer-checked:bg-volt peer-checked:text-ink peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-volt">
                 {s}
@@ -177,7 +177,6 @@ export function ApplyForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          data-cursor
           className="btn-volt group h-[3.5rem] w-full justify-center pl-8 pr-7 text-[0.9rem] tracking-[0.04em] disabled:cursor-wait sm:w-auto sm:justify-start"
         >
           <span className="relative z-10">

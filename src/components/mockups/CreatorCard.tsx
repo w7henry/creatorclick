@@ -27,7 +27,6 @@ export function CreatorCard({
   return (
     <article
       className={`card-light ${tone === "cream" ? "card-cream" : "card-paper"} w-[18rem] p-4 ${className}`}
-      data-cursor
     >
       <div className="flex items-center gap-1.5">
         <span className="pill-ink">

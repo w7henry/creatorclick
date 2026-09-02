@@ -21,7 +21,7 @@ export default function NotFound() {
           <br />
           <span className="t-outline">here.</span>
         </h1>
-        <Link href="/" className="btn-volt mt-12 h-[3.4rem] pl-8 pr-7 text-[0.9rem]" data-cursor>
+        <Link href="/" className="btn-volt mt-12 h-[3.4rem] pl-8 pr-7 text-[0.9rem]">
           <span className="relative z-10">Back to {SITE.name}</span>
         </Link>
       </div>

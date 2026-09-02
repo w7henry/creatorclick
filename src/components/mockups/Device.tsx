@@ -43,7 +43,7 @@ export function Device({
   const s = SCREENS[screen];
   return (
     <ScaleBox width={W} height={H} className={className}>
-      <div className="relative h-full w-full" data-cursor>
+      <div className="relative h-full w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset(s.src)}

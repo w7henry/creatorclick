@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
-import { Cursor } from "@/components/ui/Cursor";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import "./globals.css";
@@ -102,9 +101,7 @@ export default function RootLayout({
           Skip to content
         </a>
 
-        <div className="grain" aria-hidden="true" />
-        <div className="vignette" aria-hidden="true" />
-        <Cursor />
+        <div className="overlay-fx" aria-hidden="true" />
         <Navbar />
         {children}
         <Footer />

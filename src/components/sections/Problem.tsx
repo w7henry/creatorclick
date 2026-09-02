@@ -49,7 +49,7 @@ function Fragment({
   className?: string;
 }) {
   return (
-    <div className={`glass w-[16.5rem] rounded-[14px] px-4 py-3.5 ${className}`} data-cursor>
+    <div className={`glass w-[16.5rem] rounded-[14px] px-4 py-3.5 ${className}`}>
       <div className="flex items-start gap-3">
         <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-bone-18 text-bone-50">
           <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">

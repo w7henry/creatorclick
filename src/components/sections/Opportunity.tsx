@@ -61,7 +61,6 @@ function Node({
 }) {
   return (
     <div
-      data-cursor
       className={`group relative flex w-full items-start gap-5 rounded-[18px] border px-5 py-5 transition-colors duration-500 md:w-[68%] md:px-7 md:py-6 ${
         last
           ? "border-volt/45 bg-volt/[0.07]"

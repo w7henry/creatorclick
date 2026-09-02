@@ -45,14 +45,14 @@ export function Navbar() {
       />
 
       <header
-        className={`fixed inset-x-0 top-0 z-[80] transition-[background-color,backdrop-filter,border-color] duration-500 ${
+        className={`fixed inset-x-0 top-0 z-[80] transition-[background-color,border-color] duration-500 ${
           solid
-            ? "border-b border-[var(--color-rule)] bg-[rgba(11,11,12,0.72)] backdrop-blur-xl"
+            ? "border-b border-[var(--color-rule)] bg-[rgba(11,11,12,0.94)]"
             : "border-b border-transparent"
         }`}
       >
         <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href="/" aria-label={`${SITE.name} — home`} data-cursor className="group">
+          <Link href="/" aria-label={`${SITE.name} — home`} className="group">
             <Logo
               markClass="h-8 w-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]"
               textClass="text-[0.94rem] md:text-[1rem]"
@@ -67,7 +67,6 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  data-cursor
                   className={`link-wipe t-index text-[0.68rem] uppercase tracking-[0.2em] transition-colors duration-300 hover:text-bone ${
                     active ? "text-volt" : "text-bone-70"
                   }`}
@@ -89,7 +88,6 @@ export function Navbar() {
               aria-label="Open menu"
               aria-expanded={open}
               className="grid h-10 w-10 place-items-center rounded-full border border-bone-18 lg:hidden"
-              data-cursor
             >
               <span className="flex flex-col gap-[5px]">
                 <span className="block h-px w-4 bg-bone" />

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
+import { SITE } from "@/lib/site";
 import { ArrowRight } from "./Icons";
 
 const SIZES = {
@@ -19,7 +21,7 @@ function SwapArrow() {
 /** Primary action. */
 export function ApplyButton({
   children = "Apply to partner",
-  href = "#apply",
+  href = SITE.applyHref,
   size = "md",
   className = "",
 }: {
@@ -31,7 +33,6 @@ export function ApplyButton({
   return (
     <a
       href={href}
-      data-cursor
       className={`btn-volt group inline-flex ${SIZES[size]} ${className}`}
     >
       <span className="relative z-10 whitespace-nowrap">{children}</span>
@@ -54,7 +55,6 @@ export function GhostButton({
   return (
     <a
       href={href}
-      data-cursor
       className={`btn-ghost group font-display font-semibold uppercase ${SIZES[size]} ${className}`}
     >
       <span className="whitespace-nowrap">{children}</span>
