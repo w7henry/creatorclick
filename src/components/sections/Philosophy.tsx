@@ -83,9 +83,9 @@ export function Philosophy() {
               className="t-display t-display-tight t-optical absolute inset-x-0 top-0 text-[13vw] leading-[0.84] sm:text-[10.5vw] lg:text-[clamp(3rem,6.6vw,7.2rem)]"
               style={{ opacity: s(bOpacity), y: s(bY) }}
             >
-              Now they should
+              Nobody built them
               <br />
-              <span className="text-volt">own the business.</span>
+              <span className="text-volt">a business.</span>
             </motion.p>
           </div>
 
@@ -99,9 +99,10 @@ export function Philosophy() {
               and building a business are two entirely different crafts.
             </p>
             <p className="t-body text-bone">
-              We exist to close that gap &mdash; turning trust into products,
-              products into businesses, and businesses into something you
-              actually own.
+              We exist to close that gap. We turn that trust into a product,
+              then carry the part nobody signed up for &mdash; the building, the
+              hosting, the running &mdash; so the business exists without you
+              becoming an operations department.
             </p>
           </motion.div>
         </div>

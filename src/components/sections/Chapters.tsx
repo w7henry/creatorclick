@@ -7,12 +7,12 @@ const CHAPTERS = [
   {
     href: "/how-it-works",
     title: "How it works",
-    body: "The route from a feed full of attention to a business with customers — and the five stages we run it in.",
+    body: "The route from a feed full of attention to a business with paying customers — and the five stages we run it in.",
   },
   {
     href: "/what-we-build",
     title: "What we build",
-    body: "Websites, training apps and digital products, built as one system under your name.",
+    body: "Websites, training apps and digital products, built and hosted as one system under your name.",
   },
   {
     href: "/partnership",
@@ -22,7 +22,7 @@ const CHAPTERS = [
   {
     href: "/work",
     title: "Case studies",
-    body: "SCULPTÉ — a creator's audience turned into a training platform she owns.",
+    body: "SCULPTÉ — a creator's audience turned into a training platform that pays her.",
   },
 ];
 

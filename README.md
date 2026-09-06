@@ -3,7 +3,7 @@
 Website for CreatorClick — a revenue-share product partner for fitness
 creators. Next.js static export, deployed to GitHub Pages.
 
-> **You built the audience. We help you build the business.**
+> **You built the audience. We build and run the business.**
 
 ---
 
@@ -187,6 +187,19 @@ p95 17.9 ms, no long tasks). The rules that keep it there:
   rather than as depth.
 
 ---
+
+## Positioning
+
+The creator keeps their brand, name, method and audience. CreatorClick
+**builds, hosts and operates** the product under a partnership contract, with
+a **buy-out option on the codebase** so it is a starting structure rather than
+a lock-in. Copy across the site says exactly that — no page claims the creator
+owns the product or the infrastructure.
+
+The honest split is stated in three places a sceptical creator will look: the
+partnership ledger card (`PartnershipCard` in `src/components/mockups/Cards.tsx`),
+the revenue-share comparison panels, and the "Who owns what?" / "Am I locked
+in?" answers in `src/components/sections/FAQ.tsx`.
 
 ## Still to do
 

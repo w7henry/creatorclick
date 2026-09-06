@@ -30,7 +30,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Turn attention into ownership`,
+    default: `${SITE.name} — Turn attention into revenue`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE.url,
-    title: `${SITE.name} — Turn attention into ownership`,
+    title: `${SITE.name} — Turn attention into revenue`,
     description: SITE.description,
     siteName: SITE.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Turn attention into ownership`,
+    title: `${SITE.name} — Turn attention into revenue`,
     description: SITE.description,
   },
 };

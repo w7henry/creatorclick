@@ -79,10 +79,10 @@ export function Problem() {
             <Mask>Millions</Mask>
             <Mask delay={0.07}>of views.</Mask>
             <Mask delay={0.14}>
-              <span className="t-outline">Zero</span>
+              <span className="t-outline">Nothing</span>
             </Mask>
             <Mask delay={0.21}>
-              <span className="t-outline">ownership.</span>
+              <span className="t-outline">to sell.</span>
             </Mask>
           </h2>
         </div>
@@ -119,7 +119,7 @@ export function Problem() {
             <p className="t-index text-[0.66rem] uppercase leading-[2] tracking-[0.18em] text-bone-34">
               Attention is rented.
               <br />
-              Ownership is built.
+              A business is built.
             </p>
           </Reveal>
         </div>
@@ -148,7 +148,7 @@ export function Problem() {
             </Reveal>
             <Reveal delay={0.14}>
               <p className="t-body max-w-[46ch]">
-                And without something of your own, your income depends on
+                And without a product behind it, your income depends on
                 somebody else&rsquo;s platform &mdash; and somebody else&rsquo;s
                 decisions.
               </p>
@@ -164,7 +164,7 @@ export function Problem() {
           <Mask delay={0.08}>
             <span className="text-bone-34">
               You just need something{" "}
-              <span className="t-serif text-bone">worth owning.</span>
+              <span className="t-serif text-bone">to sell.</span>
             </span>
           </Mask>
         </p>

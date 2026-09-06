@@ -37,7 +37,7 @@ export const CASES: CaseStudy[] = [
     after: [
       "SCULPTÉ — a training app on iOS and Android",
       "Programme library, guided sessions and meal plans",
-      "Memberships, checkout and a community she owns",
+      "Memberships and checkout, hosted and run for her",
     ],
     metrics: [
       { label: "Audience at launch", value: "—" },

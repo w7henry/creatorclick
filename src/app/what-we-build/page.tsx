@@ -6,7 +6,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 export const metadata: Metadata = {
   title: "What we build",
   description:
-    "Premium websites, training apps and digital products — built as one system under the creator's own name.",
+    "Premium websites, training apps and digital products — built, hosted and run as one system under the creator's name.",
 };
 
 export default function WhatWeBuildPage() {

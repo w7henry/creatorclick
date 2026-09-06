@@ -48,17 +48,18 @@ export function Products({ as: H = "h2" }: { as?: "h1" | "h2" }) {
           <SectionTag index="01" label="What we build" />
           <H className="t-display t-display-tight t-optical mt-8 text-[14vw] leading-[0.82] sm:text-[11.5vw] lg:text-[clamp(3.2rem,7.1vw,7.8rem)]">
             <Mask>Your name.</Mask>
-            <Mask delay={0.07}>Your product.</Mask>
+            <Mask delay={0.07}>Your method.</Mask>
             <Mask delay={0.14}>
-              <span className="t-serif">Your business.</span>
+              <span className="t-serif">We run the rest.</span>
             </Mask>
           </H>
         </div>
         <div className="col-span-12 lg:col-span-3 lg:col-start-10 lg:self-end lg:pb-3">
           <Reveal delay={0.2}>
             <p className="t-body max-w-[32ch]">
-              Three product surfaces, built as one system &mdash; so the brand,
-              the app and the checkout never feel like different companies.
+              Three product surfaces, built and hosted as one system &mdash; so
+              the brand, the app and the checkout never feel like different
+              companies.
             </p>
           </Reveal>
         </div>
@@ -82,9 +83,9 @@ export function Products({ as: H = "h2" }: { as?: "h1" | "h2" }) {
               <p className="t-body mt-7 max-w-[38ch]">
                 A digital home that looks like the brand you have already built
                 &mdash; not a link-in-bio. Editorial art direction, real
-                storytelling, and every path leading somewhere you own.
+                storytelling, and every path leading somewhere that converts.
               </p>
-              <Spec items={["Brand & art direction", "Editorial build", "Owned email capture", "Analytics that mean something"]} />
+              <Spec items={["Brand & art direction", "Editorial build", "Email capture in your name", "Analytics that mean something"]} />
             </Reveal>
           </div>
 
@@ -163,8 +164,8 @@ export function Products({ as: H = "h2" }: { as?: "h1" | "h2" }) {
               </h3>
               <p className="t-body mt-7 max-w-[38ch]">
                 Programmes, memberships, challenges and cohorts. Sold from your
-                own storefront, on your own terms, to a list nobody can take
-                away from you.
+                own storefront, on your own terms, to customers who come back
+                &mdash; not an algorithm that decides.
               </p>
               <Spec items={["Memberships & tiers", "Programme drops", "Checkout & payments", "Lifecycle automation"]} />
             </Reveal>

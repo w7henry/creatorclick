@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Mask, Reveal } from "@/components/ui/Reveal";
 import { SectionTag } from "@/components/ui/SectionTag";
-import { OwnershipCard } from "@/components/mockups/Cards";
+import { PartnershipCard } from "@/components/mockups/Cards";
 
 const NODES = [
   { i: "01", title: "Content", body: "What you already make every day." },
@@ -119,7 +119,7 @@ export function Opportunity({ as: H = "h2" }: { as?: "h1" | "h2" }) {
               <Mask delay={0.07}>Attention</Mask>
               <Mask delay={0.14}>Into</Mask>
               <Mask delay={0.21}>
-                <span className="text-volt">Ownership.</span>
+                <span className="text-volt">Revenue.</span>
               </Mask>
             </H>
             <Reveal delay={0.3}>
@@ -129,7 +129,7 @@ export function Opportunity({ as: H = "h2" }: { as?: "h1" | "h2" }) {
               </p>
             </Reveal>
             <Reveal delay={0.38} className="mt-10 hidden lg:block">
-              <OwnershipCard className="w-[15.5rem] -rotate-[3deg]" />
+              <PartnershipCard className="w-[15.5rem] -rotate-[3deg]" />
             </Reveal>
           </div>
         </div>

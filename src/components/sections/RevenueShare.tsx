@@ -14,8 +14,8 @@ const TRADITIONAL = [
 const PARTNERSHIP = [
   "Shared upside instead of an invoice",
   "Aligned incentives from day one",
-  "A long-term operating partner",
-  "We only grow when the product grows",
+  "We host, run and maintain it",
+  "A buy-out option on the code",
 ];
 
 export function RevenueShare({ as: H = "h2" }: { as?: "h1" | "h2" }) {
@@ -150,7 +150,7 @@ export function RevenueShare({ as: H = "h2" }: { as?: "h1" | "h2" }) {
         <div className="mt-32 md:mt-44">
           {[
             { a: "You bring", b: "the audience." },
-            { a: "We build", b: "the infrastructure." },
+            { a: "We build", b: "and run it." },
             { a: "We share", b: "the upside.", volt: true },
           ].map((row, i) => {
             /* Static so Tailwind sees them; the indent makes the triad

@@ -2,7 +2,7 @@ import { Marquee } from "@/components/ui/Marquee";
 import { Mask, Reveal } from "@/components/ui/Reveal";
 import { SectionTag } from "@/components/ui/SectionTag";
 
-const CHAIN = ["Content", "Audience", "Product", "Revenue", "Ownership"];
+const CHAIN = ["Content", "Audience", "Product", "Customers", "Revenue"];
 
 function ChainRun() {
   return (
@@ -35,7 +35,7 @@ export function Statement() {
     <section id="statement" className="relative overflow-hidden py-20 md:py-28">
       {/* horizontal chain — the whole thesis in one moving line */}
       <div className="rule-top rule-bottom py-6 md:py-8">
-        <Marquee duration={44} ariaLabel="Content leads to audience, product, revenue and ownership">
+        <Marquee duration={44} ariaLabel="Content leads to audience, product, customers and revenue">
           <ChainRun />
         </Marquee>
       </div>
@@ -48,7 +48,7 @@ export function Statement() {
             <p className="t-body mt-7 max-w-[34ch]">
               The problem isn&rsquo;t attention.
               <br />
-              It&rsquo;s ownership.
+              It&rsquo;s infrastructure.
             </p>
           </Reveal>
         </div>

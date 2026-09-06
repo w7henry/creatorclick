@@ -10,7 +10,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const FAQS = [
   {
     q: "How does the revenue-share model work?",
-    a: "Instead of charging a full agency fee before anything is proven, we invest the strategy, design, engineering and infrastructure ourselves. In return we take an agreed share of the revenue the product generates, over an agreed period. The split depends on scope, the audience you bring and how much we are carrying — and it is written down in plain language before a single thing is built.",
+    a: "Instead of charging a full agency fee before anything is proven, we invest the strategy, design, engineering and infrastructure ourselves — then host and run the product for you. In return we take an agreed share of the revenue it generates, over an agreed period. The split depends on scope, the audience you bring and how much we are carrying, and it is written down in plain language before a single thing is built.",
   },
   {
     q: "Do I need a certain number of followers?",
@@ -18,15 +18,19 @@ const FAQS = [
   },
   {
     q: "What kind of products can we build?",
-    a: "Premium websites, training apps, memberships, programmes, cohort challenges and community platforms — plus the payments, onboarding and lifecycle infrastructure underneath them. If it can be owned, sold and improved over time, it is in scope.",
+    a: "Premium websites, training apps, memberships, programmes, cohort challenges and community platforms — plus the payments, onboarding and lifecycle infrastructure underneath them. If it can be sold and improved over time, it is in scope.",
   },
   {
     q: "How much creative control do I have?",
     a: "It carries your name, so you have the final word on brand, tone and product direction. We bring the strategy and the craft, and we will argue our corner when we think something is wrong — but nothing ships that you do not believe in.",
   },
   {
-    q: "Who owns the product?",
-    a: "You do. The brand, the audience, the customer list and the product are yours. Our agreement covers a share of revenue for a defined period — never ownership of your business.",
+    q: "Who owns what?",
+    a: "Your brand, your name, your method and your audience are yours and stay yours — none of that ever changes hands. The product itself is built, hosted and operated by us under a partnership contract. That is deliberate: it is why you never touch servers, payment providers, uptime, updates or support tickets. You get the business without the operations department.",
+  },
+  {
+    q: "Am I locked in?",
+    a: "No. There is a buy-out option on the codebase, so the partnership is a starting structure rather than a permanent one. Once the product is established you can take it in-house — the terms sit in the agreement, so you know what that involves before you sign anything.",
   },
   {
     q: "How long does the process take?",

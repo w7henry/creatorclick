@@ -26,10 +26,10 @@ export function ApplyPanel() {
         <h1 className="t-display t-display-tight t-optical mt-8 text-[12.5vw] leading-[0.82] sm:text-[9.5vw] lg:text-[clamp(2.8rem,6vw,6.6rem)]">
           <Mask>You built</Mask>
           <Mask delay={0.07}>the audience.</Mask>
-          <Mask delay={0.14}>Now build</Mask>
+          <Mask delay={0.14}>Now let&rsquo;s build</Mask>
           <Mask delay={0.21}>
             <span>
-              something <span className="text-volt">you own.</span>
+              the <span className="text-volt">business.</span>
             </span>
           </Mask>
         </h1>
@@ -41,7 +41,7 @@ export function ApplyPanel() {
                 We work with a limited number of creators at a time.
               </p>
               <p className="t-body mt-6 max-w-[34ch]">
-                Tell us what you have built and what you want to own. If
+                Tell us what you have built and what you want to sell. If
                 it&rsquo;s a fit, we&rsquo;ll come back with a product thesis
                 and a partnership structure &mdash; not a proposal deck.
               </p>
