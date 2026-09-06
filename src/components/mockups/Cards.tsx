@@ -48,16 +48,17 @@ export function RevenueCard({ className = "" }: { className?: string }) {
   );
 }
 
-export function OwnershipCard({ className = "" }: { className?: string }) {
+export function PartnershipCard({ className = "" }: { className?: string }) {
   const rows = [
+    ["Brand & name", "Yours"],
     ["Audience", "Yours"],
-    ["Product", "Yours"],
-    ["Customer list", "Yours"],
+    ["Build & hosting", "Ours"],
+    ["Codebase", "Buy-out option"],
   ];
   return (
     <div className={`glass relative rounded-[16px] px-5 py-4 ${className}`}>
       <p className="t-index text-[8px] uppercase tracking-[0.22em] text-bone-34">
-        Ownership ledger
+        Partnership ledger
       </p>
       <div className="mt-3 space-y-2">
         {rows.map(([k, v]) => (

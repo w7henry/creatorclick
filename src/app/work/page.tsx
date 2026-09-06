@@ -6,7 +6,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 export const metadata: Metadata = {
   title: "Case studies",
   description:
-    "SCULPTÉ — how creator Onka Kegakilwe turned an audience into a training platform she owns.",
+    "SCULPTÉ — how creator Onka Kegakilwe turned an audience into a training platform that pays her.",
 };
 
 export default function WorkPage() {

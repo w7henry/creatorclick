@@ -19,7 +19,7 @@ export function Footer() {
           <p className="t-lead mt-7 max-w-[26ch]">
             You built the audience.
             <br />
-            <span className="text-bone">We help you build the business.</span>
+            <span className="text-bone">We build and run the business.</span>
           </p>
         </div>
 

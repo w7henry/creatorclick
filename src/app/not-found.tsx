@@ -17,7 +17,7 @@ export default function NotFound() {
         <h1 className="t-display t-display-tight t-optical mt-7 text-[18vw] leading-[0.8] lg:text-[clamp(4rem,9vw,10rem)]">
           Nothing
           <br />
-          to own
+          to see
           <br />
           <span className="t-outline">here.</span>
         </h1>

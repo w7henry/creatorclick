@@ -27,7 +27,7 @@ function HeadlineDesktop() {
       <Mask delay={0.22}>Build something</Mask>
       <Mask delay={0.3}>
         <span>
-          You <span className="text-volt">own.</span>
+          That <span className="text-volt">pays.</span>
         </span>
       </Mask>
     </span>
@@ -49,7 +49,7 @@ function HeadlineMobile() {
       <Mask delay={0.29}>Something</Mask>
       <Mask delay={0.35}>
         <span>
-          You <span className="text-volt">own.</span>
+          That <span className="text-volt">pays.</span>
         </span>
       </Mask>
     </span>
@@ -212,7 +212,7 @@ export function Hero() {
           aria-hidden="true"
           className="t-display t-outline t-condensed block whitespace-nowrap text-[26vw] leading-[0.7] opacity-45"
         >
-          Ownership
+          Revenue
         </span>
       </ParallaxX>
 
@@ -236,7 +236,7 @@ export function Hero() {
         {/* --- headline --- */}
         <h1 className="t-display t-display-tight t-optical relative mt-10 max-w-[15ch] text-[13.2vw] sm:text-[12vw] md:mt-0 md:max-w-none md:text-[8.8vw] lg:text-[clamp(3.4rem,6.55vw,7rem)]">
           <span className="sr-only">
-            Don&rsquo;t just build an audience. Build something you own.
+            Don&rsquo;t just build an audience. Build something that pays.
           </span>
           <HeadlineDesktop />
           <HeadlineMobile />
