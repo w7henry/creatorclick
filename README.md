@@ -94,10 +94,10 @@ shows an error and offers a `mailto:` link with the same details pre-filled.
 ## Assets
 
 Real SCULPTÉ material lives in `public/sculpte/`, resized and re-encoded to
-WebP (≈550 KB for all eleven files):
+WebP:
 
 - `iphone-frame.webp` — device frame with a transparent screen cutout
-- `app-home / app-programs / app-workout.webp` — app screenshots
+- `app-home-20261012 / app-programs-20261012 / app-workout-20261012.webp` — app screenshots supplied on 12 October 2026, preserved at 945×2048 with dated URLs to refresh browser caches
 - `onka.webp` — creator portrait
 - `site-sculpte.webp` — the live sculpte.fitness homepage, shown in browser
   chrome by `SiteShot` in the case-study page's open slot
@@ -106,7 +106,7 @@ WebP (≈550 KB for all eleven files):
 `Device` (`src/components/mockups/Device.tsx`) composites a screenshot behind
 the frame at the exact cutout rect measured off the frame's alpha channel
 (870×1886 at 81,81 in a 1032×2048 image). The cutout's aspect is 0.46129
-against the screenshots' 0.46127, so nothing is stretched and the frame's own
+against the screenshots' 0.46143, so nothing is stretched and the frame's own
 rounded opening masks the corners.
 
 ## Logo

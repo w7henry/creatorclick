@@ -8,7 +8,7 @@ import { ScaleBox } from "./ScaleBox";
  * positioned into that exact rect (measured off the frame's alpha channel) and
  * the frame's own rounded opening masks the corners. Frame is 1032x2048 and the
  * cutout is 870x1886 at (81, 81) — an aspect of 0.46129 against the
- * screenshots' 0.46127, so nothing is stretched.
+ * screenshots' 0.46143, so nothing is stretched.
  */
 const FRAME_W = 1032;
 const FRAME_H = 2048;
@@ -20,9 +20,9 @@ const SCREEN = {
 };
 
 export const SCREENS = {
-  home: { src: "/sculpte/app-home.webp", alt: "SCULPTÉ app — programme home screen" },
-  programs: { src: "/sculpte/app-programs.webp", alt: "SCULPTÉ app — programme library" },
-  workout: { src: "/sculpte/app-workout.webp", alt: "SCULPTÉ app — guided workout" },
+  home: { src: "/sculpte/app-home-20261012.webp", alt: "SCULPTÉ app — home screen with the weekly calendar and next Long Run session" },
+  programs: { src: "/sculpte/app-programs-20261012.webp", alt: "SCULPTÉ app — strength and lower-body programmes with levels and XP unlocks" },
+  workout: { src: "/sculpte/app-workout-20261012.webp", alt: "SCULPTÉ app — Endurance Run, Day B, with exercise duration and completion tracking" },
 } as const;
 
 export type ScreenKey = keyof typeof SCREENS;
@@ -51,8 +51,8 @@ export function Device({
         <img
           src={asset(s.src)}
           alt={s.alt}
-          width={786}
-          height={1704}
+          width={945}
+          height={2048}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
           decoding="async"
