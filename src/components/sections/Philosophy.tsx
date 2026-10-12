@@ -67,7 +67,7 @@ export function Philosophy() {
         />
 
         <div className="shell relative w-full">
-          <SectionTag index="04" label="Philosophy" className="mb-10 md:mb-14" />
+          <SectionTag index="03" label="Philosophy" className="mb-10 md:mb-14" />
 
           <div className="relative h-[42vh] sm:h-[38vh] lg:h-[34vh]">
             <motion.p

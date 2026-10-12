@@ -3,6 +3,7 @@ import { Archivo, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { StickyApply } from "@/components/ui/StickyApply";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -105,6 +106,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <StickyApply />
       </body>
     </html>
   );

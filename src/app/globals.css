@@ -91,6 +91,10 @@ body {
   border-radius: 2px;
 }
 
+/* The handle field shows focus on the pill around it (focus-within) rather
+   than as a box inside it. Unlayered, like the rule above, so it wins. */
+.claim-input:focus-visible { outline: none; }
+
 /* Firefox / WebKit scrollbar, kept thin and unbranded */
 * { scrollbar-width: thin; scrollbar-color: rgba(242,240,234,.18) transparent; }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
@@ -230,20 +234,6 @@ body {
 /* ------------------------------------------------------------
    Motion primitives
    ------------------------------------------------------------ */
-
-@keyframes cc-marquee {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  animation: cc-marquee var(--marquee-duration, 38s) linear infinite;
-}
-.marquee-reverse { animation-direction: reverse; }
-.marquee-host:hover .marquee-track { animation-play-state: paused; }
 
 @keyframes cc-float {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
@@ -442,7 +432,6 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .marquee-track { animation: none !important; transform: none !important; }
   .floaty { animation: none !important; }
 }
 

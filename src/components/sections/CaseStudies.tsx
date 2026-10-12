@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CASES } from "@/lib/cases";
 import { SITE } from "@/lib/site";
 import { asset } from "@/lib/asset";
@@ -188,7 +189,7 @@ export function CaseStudies({ as: H = "h2" }: { as?: "h1" | "h2" }) {
                 We keep a small number of partnership slots open at any time. If
                 the fit is right, the next case study on this page is yours.
               </p>
-              <a
+              <Link
                 href={SITE.applyHref}
                 className="group mt-9 inline-flex items-center gap-4 border-b border-volt/45 pb-2 transition-colors duration-500 hover:border-volt"
               >
@@ -196,7 +197,7 @@ export function CaseStudies({ as: H = "h2" }: { as?: "h1" | "h2" }) {
                   Apply to partner
                 </span>
                 <ArrowUpRight className="h-4 w-4 text-volt transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
+              </Link>
             </Reveal>
           </div>
 

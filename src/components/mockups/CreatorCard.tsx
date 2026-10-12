@@ -3,9 +3,10 @@ import { asset } from "@/lib/asset";
 /**
  * A creator's own programme, as a product tile.
  *
- * The handle stays "@yourhandle" on purpose: these are specimens of what a
- * partner's product looks like, and inventing a creator's name would read
- * as a fake client. It also happens to say the thesis out loud.
+ * The handle defaults to "@yourhandle" on purpose: these are specimens of
+ * what a partner's product looks like, and inventing a creator's name would
+ * read as a fake client. In the hero it shows whatever the visitor types
+ * into the handle field instead — their name on the product, live.
  */
 export function CreatorCard({
   title,
@@ -58,7 +59,7 @@ export function CreatorCard({
         <div className="h-[4.2rem] w-[4.2rem] shrink-0 overflow-hidden rounded-[12px]">
           {src ? (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img src={src} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <img src={asset(src)} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           ) : (
             <span className="plate-light block h-full w-full" aria-hidden="true" />
           )}

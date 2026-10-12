@@ -18,7 +18,11 @@ function SwapArrow() {
   );
 }
 
-/** Primary action. */
+/**
+ * Primary action. Rendered through next/link so internal routes pick up the
+ * base path — a plain <a href="/apply"> would leave a project page
+ * (/creatorclick) for the bare domain and 404.
+ */
 export function ApplyButton({
   children = "Apply to partner",
   href = SITE.applyHref,
@@ -31,13 +35,13 @@ export function ApplyButton({
   className?: string;
 }) {
   return (
-    <a
+    <Link
       href={href}
       className={`btn-volt group inline-flex ${SIZES[size]} ${className}`}
     >
       <span className="relative z-10 whitespace-nowrap">{children}</span>
       <SwapArrow />
-    </a>
+    </Link>
   );
 }
 
@@ -53,12 +57,12 @@ export function GhostButton({
   className?: string;
 }) {
   return (
-    <a
+    <Link
       href={href}
       className={`btn-ghost group font-display font-semibold uppercase ${SIZES[size]} ${className}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <ArrowRight className="h-[1.05em] w-[1.3em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
-    </a>
+    </Link>
   );
 }

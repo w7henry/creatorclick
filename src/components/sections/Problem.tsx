@@ -74,7 +74,7 @@ export function Problem() {
     <section id="problem" className="relative overflow-hidden py-24 md:py-36">
       <div className="shell grid grid-cols-12 gap-y-14">
         <div className="col-span-12 lg:col-span-7">
-          <SectionTag index="02" label="The problem" />
+          <SectionTag index="01" label="The problem" />
           <h2 className="t-display t-display-tight t-optical mt-8 text-[13.5vw] leading-[0.83] sm:text-[11.5vw] lg:text-[clamp(3.2rem,6.9vw,7.6rem)]">
             <Mask>Millions</Mask>
             <Mask delay={0.07}>of views.</Mask>

@@ -2,55 +2,45 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { SITE } from "@/lib/site";
 import { Mask, Reveal } from "@/components/ui/Reveal";
 import { Parallax, ParallaxX } from "@/components/ui/Parallax";
-import { ApplyButton } from "@/components/ui/Cta";
-import { ArrowDown } from "@/components/ui/Icons";
+import { Assurances, HandleClaim } from "@/components/ui/HandleClaim";
 import { Device } from "@/components/mockups/Device";
 import { RevenueCard } from "@/components/mockups/Cards";
 import { CreatorCard } from "@/components/mockups/CreatorCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/* Desktop headline: long / short / long / short rag, so the device cluster
-   lands in the negative space instead of covering the sentence. */
+/* Desktop headline: short / long / long / short rag, so the device cluster
+   lands in the negative space instead of covering the sentence. It names the
+   product outright — a visitor should know what this is in five seconds. */
 function HeadlineDesktop() {
   return (
     <span aria-hidden="true" className="hidden md:block">
-      <Mask delay={0.06}>
-        <span>
-          Don&rsquo;t <em className="t-serif">just</em> build
-        </span>
+      <Mask delay={0.06}>Your own</Mask>
+      <Mask delay={0.14}>
+        <em className="t-serif">fitness app.</em>
       </Mask>
-      <Mask delay={0.14}>An audience.</Mask>
-      <Mask delay={0.22}>Build something</Mask>
+      <Mask delay={0.22}>Built and run</Mask>
       <Mask delay={0.3}>
-        <span>
-          That <span className="text-volt">pays.</span>
-        </span>
+        <span className="text-volt">for you.</span>
       </Mask>
     </span>
   );
 }
 
-/* Mobile is re-composed, not shrunk: shorter measure, six lines. */
+/* Mobile is re-composed, not shrunk: shorter measure, five lines. */
 function HeadlineMobile() {
   return (
     <span aria-hidden="true" className="block md:hidden">
-      <Mask delay={0.05}>Don&rsquo;t</Mask>
+      <Mask delay={0.05}>Your own</Mask>
       <Mask delay={0.11}>
-        <span>
-          <em className="t-serif">just</em> build
-        </span>
+        <em className="t-serif">fitness app.</em>
       </Mask>
-      <Mask delay={0.17}>An audience.</Mask>
-      <Mask delay={0.23}>Build</Mask>
-      <Mask delay={0.29}>Something</Mask>
-      <Mask delay={0.35}>
-        <span>
-          That <span className="text-volt">pays.</span>
-        </span>
+      <Mask delay={0.17}>Built</Mask>
+      <Mask delay={0.23}>and run</Mask>
+      <Mask delay={0.29}>
+        <span className="text-volt">for you.</span>
       </Mask>
     </span>
   );
@@ -88,7 +78,7 @@ function Floaty({
   );
 }
 
-function DeviceCluster() {
+function DeviceCluster({ handle }: { handle: string }) {
   // Server-rendered so desktop never flashes, then dropped on small viewports
   // where it is display:none anyway — otherwise its parallax hooks and springs
   // keep running for elements nobody can see.
@@ -142,6 +132,7 @@ function DeviceCluster() {
           <Floaty seconds={12.5} y={-19} rotate={1.1}>
             <CreatorCard
               title="Intense ABS workout"
+              handle={`@${handle || "yourhandle"}`}
               className="rotate-[-4deg] shadow-[0_34px_70px_-30px_rgba(0,0,0,0.9)]"
             />
           </Floaty>
@@ -179,6 +170,9 @@ function DeviceCluster() {
 }
 
 export function Hero() {
+  // Lifted here so the floating product card shows the handle being typed.
+  const [handle, setHandle] = useState("");
+
   return (
     <section
       id="top"
@@ -216,10 +210,10 @@ export function Hero() {
         </span>
       </ParallaxX>
 
-      <DeviceCluster />
+      <DeviceCluster handle={handle} />
 
       <div className="shell relative z-10 flex min-h-[calc(100svh-68px)] flex-col justify-between pb-10 pt-8 md:min-h-[calc(100svh-78px)] md:pb-12 md:pt-10">
-        {/* --- top meta row --- */}
+        {/* --- top meta row: who it is for, and that it is not for everyone --- */}
         <Reveal delay={0.1} y={14} className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className="flex items-center gap-2.5">
             <span className="relative grid h-1.5 w-1.5 place-items-center">
@@ -229,58 +223,39 @@ export function Hero() {
             <span className="t-eyebrow">Limited partner intake</span>
           </span>
           <span className="t-eyebrow hidden sm:inline">
-            Revenue&nbsp;share&nbsp;·&nbsp;Not&nbsp;an&nbsp;agency
+            For&nbsp;fitness&nbsp;creators&nbsp;·&nbsp;Revenue&nbsp;share
           </span>
         </Reveal>
 
         {/* --- headline --- */}
-        <h1 className="t-display t-display-tight t-optical relative mt-10 max-w-[15ch] text-[13.2vw] sm:text-[12vw] md:mt-0 md:max-w-none md:text-[8.8vw] lg:text-[clamp(3.4rem,6.55vw,7rem)]">
-          <span className="sr-only">
-            Don&rsquo;t just build an audience. Build something that pays.
-          </span>
+        <h1 className="t-display t-display-tight t-optical relative mt-10 max-w-[15ch] text-[13.2vw] sm:text-[12vw] md:mt-0 md:max-w-none md:text-[8.8vw] lg:text-[clamp(3.2rem,5.9vw,6.4rem)]">
+          <span className="sr-only">Your own fitness app. Built and run for you.</span>
           <HeadlineDesktop />
           <HeadlineMobile />
         </h1>
 
-        {/* --- bottom row --- */}
+        {/* --- bottom row: what it is, then the one action --- */}
         <div className="mt-12 lg:mt-0">
           <Reveal delay={0.42} y={18}>
             <div className="hairline-x" />
           </Reveal>
 
           <div className="grid grid-cols-12 gap-y-8 pt-7 lg:gap-x-10">
-            <Reveal delay={0.48} className="col-span-12 lg:col-span-5">
-              <p className="t-lead max-w-[46ch] text-balance">
-                We partner with ambitious creators to build premium digital
-                products &mdash; and turn an audience into a business that
-                keeps paying after the post stops trending.
+            <Reveal delay={0.48} className="col-span-12 lg:col-span-6">
+              <p className="t-lead max-w-[50ch] text-balance">
+                We build your training app, website and programmes &mdash; then
+                host and run them under your name. No agency invoice up front:
+                we earn a share of what they make.
               </p>
-              <a
-                href="#statement"
-                className="group mt-8 hidden items-center gap-3 lg:inline-flex"
-                aria-label="Scroll to next section"
-              >
-                <span className="grid h-8 w-8 place-items-center rounded-full border border-bone-18 transition-colors duration-500 group-hover:border-volt">
-                  <ArrowDown className="h-3.5 w-3.5 text-bone-50 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0.5 group-hover:text-volt" />
-                </span>
-                <span className="t-index text-[0.58rem] uppercase tracking-[0.24em] text-bone-34 transition-colors duration-500 group-hover:text-bone-70">
-                  Scroll
-                </span>
-              </a>
             </Reveal>
 
             <Reveal
               delay={0.56}
-              className="col-span-12 flex flex-col items-start gap-5 lg:col-span-4 lg:col-start-7"
+              className="col-span-12 lg:col-span-6 lg:row-start-2"
             >
-              <ApplyButton size="lg" href={SITE.applyHref}>
-                Apply to partner
-              </ApplyButton>
-              <p className="t-index max-w-[30ch] text-[0.66rem] uppercase leading-relaxed tracking-[0.16em] text-bone-34">
-                Revenue-share partnerships for selected creators.
-              </p>
+              <HandleClaim onHandleChange={setHandle} className="max-w-[34rem]" />
+              <Assurances className="mt-6" />
             </Reveal>
-
           </div>
         </div>
       </div>

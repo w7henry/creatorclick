@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { SITE } from "@/lib/site";
+import { handleFromHash } from "@/lib/handle";
 import { ArrowRight } from "@/components/ui/Icons";
 
 const PLATFORMS = ["Instagram", "TikTok", "YouTube", "Multiple", "Other"];
@@ -43,7 +44,19 @@ function mailtoFor(v: Record<string, string>) {
 export function ApplyForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [fallback, setFallback] = useState<string>("");
+  const [started, setStarted] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const handleRef = useRef<HTMLInputElement>(null);
+
+  // A handle typed into the hero or a CTA band arrives in the fragment, so the
+  // form opens already started — the visitor is finishing something, not
+  // beginning it.
+  useEffect(() => {
+    const h = handleFromHash(window.location.hash);
+    if (!h || !handleRef.current) return;
+    handleRef.current.value = `@${h}`;
+    setStarted(h);
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -77,6 +90,7 @@ export function ApplyForm() {
       });
       if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
       setStatus("sent");
+      setStarted("");
       formRef.current?.reset();
     } catch {
       setStatus("error");
@@ -116,6 +130,13 @@ export function ApplyForm() {
       onSubmit={handleSubmit}
       className="grid gap-x-8 gap-y-9 sm:grid-cols-2"
     >
+      {started && (
+        <p className="t-index flex items-center gap-2.5 text-[0.6rem] uppercase tracking-[0.18em] text-volt sm:col-span-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-volt" />
+          Started for @{started} &mdash; a few more details
+        </p>
+      )}
+
       <div className="sr-only" aria-hidden="true">
         <label htmlFor="company">Company</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
@@ -149,7 +170,7 @@ export function ApplyForm() {
 
       <div>
         <Label htmlFor="handle">Handle</Label>
-        <input id="handle" name="handle" required className={fieldClass} placeholder="@yourhandle" disabled={status === "sending"} />
+        <input id="handle" ref={handleRef} name="handle" required className={fieldClass} placeholder="@yourhandle" disabled={status === "sending"} />
       </div>
 
       <fieldset className="sm:col-span-2" disabled={status === "sending"}>

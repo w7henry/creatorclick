@@ -29,8 +29,8 @@ npm run typecheck
 
 | Route | Contents |
 |---|---|
-| `/` | Hero, statement marquee, the problem, chapter index, philosophy, application |
-| `/how-it-works` | The opportunity chain, the five-stage process |
+| `/` | Hero with handle claim, live-product proof bar, the problem, the stack comparison, three steps, proof, FAQ, closing claim band |
+| `/how-it-works` | The opportunity chain, the five-stage process, philosophy |
 | `/what-we-build` | Websites, training apps, digital products |
 | `/partnership` | Revenue share, selectivity, FAQ |
 | `/work` | SCULPTÉ case study |
@@ -38,8 +38,17 @@ npm run typecheck
 | `/legal/imprint` | Impressum / legal notice (EN + DE) |
 | `/legal/privacy` | Datenschutzerklärung / privacy policy (EN + DE) |
 
-The form lives only on `/apply`; every other page closes with a CTA band that
-links there, so the header CTA has one destination site-wide.
+The application form lives only on `/apply`, so every CTA has one destination
+site-wide. The hero and the closing band on each content page ask for one
+thing first, a handle (`HandleClaim`), and carry it to `/apply` in the URL
+fragment (`#handle=…`), so the form opens already filled in. A fragment never
+reaches the server, so nothing new is written to hosting logs or browser
+storage. On phones, where the header has no room for its CTA, `StickyApply`
+keeps one under the thumb.
+
+The home page's structure and copy follow a deliberate conversion model,
+reverse-engineered from stan.store: see
+[`docs/conversion-psychology.md`](docs/conversion-psychology.md).
 
 ## Deployment
 
@@ -47,7 +56,9 @@ links there, so the header CTA has one destination site-wide.
 `./out`. The base path comes from `actions/configure-pages`, so the same build
 works on the project page (`/creatorclick`) and on a custom domain without any
 code change. Plain `<img>` sources go through `asset()` in `src/lib/asset.ts`
-so they pick up that prefix too.
+so they pick up that prefix too, and internal links must go through
+`next/link` (as `ApplyButton` does). A plain `<a href="/apply">` skips the
+prefix and 404s on the project page.
 
 ---
 
@@ -128,11 +139,13 @@ src/
     globals.css       the whole design system
     not-found.tsx     styled 404 (exported as /404.html)
   components/
-    ui/               Reveal, Parallax, Marquee, Cursor, Plate, Cta, Logo
+    ui/               Reveal, Parallax, Plate, Cta, HandleClaim,
+                      StickyApply, Logo
     mockups/          Device, SiteMockup, CreatorCard, floating cards
     sections/         page sections
   lib/
     site.ts           nav, contact, webhook
+    handle.ts         handle clean-up and the #handle= hand-off to /apply
     cases.ts          case-study data
     legal.ts          imprint + privacy, EN and DE
     asset.ts          basePath-aware asset URLs
@@ -162,7 +175,7 @@ Typographic roles: `.t-display` (heavy grotesque, tight tracking), `.t-serif`
 Skip link, semantic landmarks, exactly one `h1` per page, real
 `<button>`/`<fieldset>` controls with `aria-expanded`/`aria-controls`, visible
 `:focus-visible` rings, and a full `prefers-reduced-motion` path that disables
-parallax, floats and marquees.
+parallax and floats.
 
 ### Performance
 
@@ -196,10 +209,14 @@ a **buy-out option on the codebase** so it is a starting structure rather than
 a lock-in. Copy across the site says exactly that — no page claims the creator
 owns the product or the infrastructure.
 
-The honest split is stated in three places a sceptical creator will look: the
+The honest split is stated in the places a sceptical creator will look: the
 partnership ledger card (`PartnershipCard` in `src/components/mockups/Cards.tsx`),
-the revenue-share comparison panels, and the "Who owns what?" / "Am I locked
-in?" answers in `src/components/sections/FAQ.tsx`.
+the revenue-share comparison panels, the home page's stack table
+(`Stack.tsx`), and the "Who owns what?" / "Am I locked in?" answers in
+`src/components/sections/FAQ.tsx`.
+
+"No upfront invoice" is promised under every handle field and in the stack
+table. Keep it only while it matches the contracts.
 
 ## Still to do
 

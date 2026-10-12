@@ -1,8 +1,11 @@
-import { SITE } from "@/lib/site";
 import { Mask, Reveal } from "@/components/ui/Reveal";
-import { ApplyButton } from "@/components/ui/Cta";
+import { Assurances, HandleClaim } from "@/components/ui/HandleClaim";
 
-/** Closing band on content pages. The form itself lives on /apply. */
+/**
+ * Closing band on every content page: the hero's handle field again, so the
+ * last thing a page asks for is the same small first step as the first. The
+ * application itself lives on /apply.
+ */
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden border-t border-[var(--color-rule)] py-20 md:py-28">
@@ -15,7 +18,7 @@ export function CtaBand() {
         }}
       />
       <div className="shell relative grid grid-cols-12 items-end gap-y-10">
-        <div className="col-span-12 lg:col-span-8">
+        <div className="col-span-12 lg:col-span-7">
           <p className="t-eyebrow">Limited partner intake</p>
           <p className="t-display t-display-tight t-optical mt-6 text-[12vw] leading-[0.84] sm:text-[9vw] lg:text-[clamp(2.6rem,5.2vw,5.8rem)]">
             <Mask>Think it could</Mask>
@@ -26,14 +29,10 @@ export function CtaBand() {
             </Mask>
           </p>
         </div>
-        <div className="col-span-12 lg:col-span-4 lg:justify-self-end lg:text-right">
+        <div className="col-span-12 lg:col-span-5">
           <Reveal delay={0.14}>
-            <ApplyButton size="lg" href={SITE.applyHref}>
-              Apply to partner
-            </ApplyButton>
-            <p className="t-index mt-6 max-w-[30ch] text-[0.62rem] uppercase leading-relaxed tracking-[0.16em] text-bone-34 lg:ml-auto">
-              Revenue-share partnerships for selected creators.
-            </p>
+            <HandleClaim preview={false} className="max-w-[34rem] lg:ml-auto" />
+            <Assurances className="mt-6 lg:ml-auto lg:max-w-[34rem]" />
           </Reveal>
         </div>
       </div>

@@ -115,15 +115,23 @@ function Item({
   );
 }
 
-export function FAQ() {
+export function FAQ({
+  index = "03",
+  pick,
+}: {
+  index?: string;
+  /** Positions in FAQS to show, in this order. Omit for all of them. */
+  pick?: number[];
+}) {
   const [open, setOpen] = useState<number | null>(0);
+  const items = pick ? pick.map((i) => FAQS[i]) : FAQS;
 
   return (
     <section id="faq" className="relative py-24 md:py-36">
       <div className="shell grid grid-cols-12 gap-y-12 lg:gap-x-10">
         <div className="col-span-12 lg:col-span-4">
           <div className="lg:sticky lg:top-[24vh]">
-            <SectionTag index="03" label="Questions" />
+            <SectionTag index={index} label="Questions" />
             <h2 className="t-display t-display-tight t-optical mt-8 text-[13vw] leading-[0.84] sm:text-[10vw] lg:text-[clamp(2.6rem,4.4vw,4.8rem)]">
               <Mask>Worth</Mask>
               <Mask delay={0.07}>
@@ -140,7 +148,7 @@ export function FAQ() {
         </div>
 
         <div className="col-span-12 lg:col-span-7 lg:col-start-6">
-          {FAQS.map((item, i) => (
+          {items.map((item, i) => (
             <Item
               key={item.q}
               item={item}

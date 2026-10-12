@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageMain } from "@/components/ui/PageMain";
 import { Opportunity } from "@/components/sections/Opportunity";
 import { Process } from "@/components/sections/Process";
+import { Philosophy } from "@/components/sections/Philosophy";
 import { CtaBand } from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function HowItWorksPage() {
     <PageMain>
       <Opportunity as="h1" />
       <Process />
+      <Philosophy />
       <CtaBand />
     </PageMain>
   );
